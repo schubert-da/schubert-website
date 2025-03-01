@@ -1,0 +1,11 @@
+@import url('reset.css');
+
+:root {
+    --palette-navy: #252B31;
+    --palette-blue: #76A5CB;
+    --palette-green: #93B8AB;
+    --palette-green-muted: #818E88;
+    --palette-yellow: #E8B955;
+    --palette-yellow-muted: #D1B16C;
+    --palette-light-brown: #A49890;
+}
