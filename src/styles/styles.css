@@ -1,5 +1,20 @@
 @import url('reset.css');
 
+@font-face {
+    font-family: 'DM Serif Display';
+    src: url('/fonts/DMSerifDisplay-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter Tight';
+    src: url('/fonts/InterTight-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
 :root {
     --palette-navy: #252B31;
     --palette-blue: #76A5CB;
@@ -8,4 +23,6 @@
     --palette-yellow: #E8B955;
     --palette-yellow-muted: #D1B16C;
     --palette-light-brown: #A49890;
+
+    --text-grey: #222;
 }
