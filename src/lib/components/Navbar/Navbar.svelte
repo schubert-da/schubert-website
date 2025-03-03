@@ -120,7 +120,9 @@
 			overflow: hidden;
 
 			width: 100%;
+			max-width: max(75vw, 1200px);
 			height: 100%;
+			margin: 0 auto;
 			background-color: var(--color-background);
 			box-shadow: -4px 5px 4px rgba(0, 0, 0, 0.25);
 			border: 2px solid #929292;
