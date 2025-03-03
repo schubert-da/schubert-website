@@ -1,10 +1,11 @@
 <script>
 	import CareerImage from '$lib/assets/images/schubert-career-viz.png';
+	import { navbarHeight } from '$lib/utils/stores';
 
 	let captionHeight = 0;
 </script>
 
-<section>
+<section style="--navbar-height: {$navbarHeight}px">
 	<div class="card">
 		<div class="text-content">
 			<h2>Hi there, I&#x2019m <span class="highlight">Schubert!</span></h2>
@@ -42,7 +43,7 @@
 		justify-content: center;
 		align-items: center;
 
-		height: 100vh;
+		height: calc(100vh - var(--navbar-height) - 0.5rem);
 		background-color: var(--palette-yellow-muted);
 	}
 
@@ -53,6 +54,7 @@
 		align-items: center;
 
 		width: 100%;
+		max-width: max(75vw, 1200px);
 		height: 100%;
 		padding: 0 3rem;
 		background-color: var(--color-background);

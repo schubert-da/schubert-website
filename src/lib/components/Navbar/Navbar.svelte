@@ -1,4 +1,6 @@
 <script>
+	import { navbarHeight } from '$lib/utils/stores';
+
 	let navSections = [
 		{
 			name: 'Home',
@@ -69,12 +71,10 @@
 			]
 		}
 	];
-
-	let navbarHeight = 0;
 </script>
 
 <nav>
-	<div class="section-list" bind:clientHeight={navbarHeight}>
+	<div class="section-list" bind:clientHeight={$navbarHeight}>
 		{#each navSections as category, index}
 			<div
 				class="section-wells"
@@ -101,7 +101,7 @@
 	</div>
 </nav>
 
-<div class="navbar-spacer" style="--navbar-height: {navbarHeight}px"></div>
+<div class="navbar-spacer" style="--navbar-height: {$navbarHeight}px"></div>
 
 <style lang="scss">
 	nav {
@@ -214,7 +214,7 @@
 	}
 
 	.navbar-spacer {
-		height: var(--navbar-height);
+		height: calc(var(--navbar-height) + 0.5rem);
 		background-color: var(--palette-yellow-muted);
 	}
 </style>
