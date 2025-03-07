@@ -1,5 +1,6 @@
 <script>
 	import CareerImage from '$lib/assets/images/schubert-career-viz.png';
+	import ParallaxScene from '$lib/components/ParallaxScene/ParallaxScene.svelte';
 	import { navbarHeight } from '$lib/utils/stores';
 
 	let captionHeight = 0;
@@ -23,7 +24,8 @@
 		<div class="image-content">
 			<div class="image-container">
 				<div class="image-wrapper" style="--caption-height: {captionHeight}px">
-					<img src={CareerImage} alt="graph showing Schubert's career" />
+					<!-- <img src={CareerImage} alt="graph showing Schubert's career" /> -->
+					<ParallaxScene></ParallaxScene>
 				</div>
 
 				<div class="caption" bind:clientHeight={captionHeight}>
@@ -133,6 +135,7 @@
 						width: 100%;
 						height: 100%;
 						box-shadow: inset -3px 4px 4px rgba(0, 0, 0, 0.4);
+						pointer-events: none;
 					}
 				}
 
