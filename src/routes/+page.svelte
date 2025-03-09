@@ -9,7 +9,7 @@
 		scrollerParams.set({ index, offset, progress });
 	}
 
-	$: console.log('$scrollerParams', $scrollerParams);
+	// $: console.log('$scrollerParams', $scrollerParams);
 </script>
 
 <Scroller top={0.1} threshold={0.35} bind:index bind:offset bind:progress>

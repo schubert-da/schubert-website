@@ -1,6 +1,8 @@
 <script>
 	import { navbarHeight } from '$lib/utils/stores';
 
+	let { showNav } = $props();
+
 	let navSections = [
 		{
 			name: 'Home',
@@ -74,7 +76,7 @@
 </script>
 
 <nav>
-	<div class="section-list" bind:clientHeight={$navbarHeight}>
+	<div class="section-list" bind:clientHeight={$navbarHeight} class:show-nav={showNav}>
 		{#each navSections as category, index}
 			<div
 				class="section-wells"
@@ -127,6 +129,13 @@
 			box-shadow: -4px 5px 4px rgba(0, 0, 0, 0.25);
 			border: 2px solid #929292;
 			border-radius: 8px;
+
+			transform: translateY(-110%);
+			transition: all 0.3s ease-in-out;
+
+			&.show-nav {
+				transform: translateY(0);
+			}
 		}
 
 		.section-wells {
