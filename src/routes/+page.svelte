@@ -1,6 +1,7 @@
 <script>
 	import HeroSection from '$lib/components/SectionCards/HomeSection/HeroSection.svelte';
 	import IntroSection from '$lib/components/SectionCards/HomeSection/IntroSection.svelte';
+	import FeaturedWork from '$lib/components/Works/FeaturedWork.svelte';
 	import { scrollerParams } from '$lib/utils/stores';
 	import Scroller from '@sveltejs/svelte-scroller';
 
@@ -18,6 +19,7 @@
 	<div slot="foreground">
 		<HeroSection></HeroSection>
 		<IntroSection></IntroSection>
+		<FeaturedWork></FeaturedWork>
 	</div>
 </Scroller>
 

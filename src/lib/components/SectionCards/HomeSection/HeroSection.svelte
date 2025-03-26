@@ -120,6 +120,7 @@
 					overflow: hidden;
 
 					margin-bottom: var(--bottom-margin);
+					height: 100%;
 					max-height: calc(100% - var(--caption-height) - var(--bottom-margin));
 					border: 2px solid #666;
 					border-radius: 10px;
