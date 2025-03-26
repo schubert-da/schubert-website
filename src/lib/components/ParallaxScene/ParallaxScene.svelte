@@ -1,20 +1,22 @@
 <script>
-	import CareerLayer1 from '$lib/assets/images/career-layer-1.png';
-	import CareerLayer2 from '$lib/assets/images/career-layer-2.png';
-	import CareerLayer3 from '$lib/assets/images/career-layer-3.png';
+	import StudyWorkImage from '$lib/assets/images/study-work.png';
+	import ArtLearningImage from '$lib/assets/images/art-learning.png';
+	import DatavizLearningImage from '$lib/assets/images/dataviz.png';
+	import DatavizDevelopmentImage from '$lib/assets/images/dataviz-development.png';
 	import CareerBackground from '$lib/assets/images/career-layer-bg.png';
 
 	import { scrollerParams } from '$lib/utils/stores';
 
 	export let layerConfig = [
-		{ src: CareerLayer1, order: 1, speed: 0.4 },
-		{ src: CareerLayer2, order: 2, speed: 0.3 },
-		{ src: CareerLayer3, order: 3, speed: 0.25 }
+		{ src: StudyWorkImage, order: 1, speed: 0.25 },
+		{ src: ArtLearningImage, order: 2, speed: 0.3 },
+		{ src: DatavizLearningImage, order: 3, speed: 0.35 },
+		{ src: DatavizDevelopmentImage, order: 4, speed: 0.3 }
 	];
 	export const cardIndex = 0;
 
 	function calculateYTranslate(scrollerParams, speed) {
-		let OFFSET = 0.4;
+		let OFFSET = 0.3;
 
 		if (scrollerParams.index !== cardIndex) {
 			return (OFFSET - 1) * speed * -100;
@@ -51,6 +53,7 @@
 		.placeholder-image {
 			width: 100%;
 			height: auto;
+			opacity: 0;
 		}
 
 		.layer {
@@ -58,6 +61,9 @@
 			top: 50%;
 			left: 50%;
 			z-index: var(--order);
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
 			width: 100%;
 			height: 100%;
@@ -65,7 +71,8 @@
 
 			img {
 				width: 100%;
-				height: auto;
+				height: 100%;
+				object-fit: contain;
 			}
 		}
 	}
