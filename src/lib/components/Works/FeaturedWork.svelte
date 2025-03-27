@@ -5,30 +5,49 @@
 	import Image4 from '$lib/assets/images/works/wdvp-4.png';
 	import Image5 from '$lib/assets/images/works/wdvp-5.png';
 	import Image6 from '$lib/assets/images/works/wdvp-6.png';
+
+	import { scrollerParams } from '$lib/utils/stores';
+
+	export let currentIndex = 1;
 </script>
 
 <section>
 	<div class="card">
 		<div class="text-content">
 			<div class="title">
-				<h2>Dairy Chain Transition</h2>
-				<span class="client">World Wildlife Fund</span>
+				<h2>One Step Forward, But Still Short</h2>
+				<span class="client">World Data Visualisation Prize 2024</span>
 			</div>
 
 			<div class="description">
 				<p>
-					I build charts and weird interactives on the web while I struggle to fill out a sketchbook
-					on the side.
+					An interactive story about shortfall of progress towards achieving UN's SDG Goals. This
+					piece ended up making it to the shortlist of the World Data Visualisation Prize in 2024.
 				</p>
+
 				<p>
-					If it's creative and I've worked on it, you will likely find it in realms of this site
+					This was project had many firsts for me - it was my first time writing a narrative, I also
+					decided to not create charts with code - instead it was a combination of RawGraphs and
+					Milton(think ai2html but for Figma) and my first attempt at SEO(it has none - I couldn't
+					figure it out and gave up).
+				</p>
+
+				<p>
+					Done at a time when I'd never implemented a scrollytelling piece before, this project used
+					Russel Goldenberg's utility component to create a couple basic scroll-based animations for
+					the various charts.
 				</p>
 			</div>
 		</div>
 
-		<div class="image-content">
+		<div
+			class="image-content"
+			style="--scroll-offset: {$scrollerParams?.index === currentIndex
+				? $scrollerParams.offset
+				: 0}"
+		>
 			<div class="track-container">
-				<div class="image-track">
+				<div class="image-track track-left">
 					<div class="image-wrapper">
 						<img src={Image1} alt="graph showing Schubert's career" />
 					</div>
@@ -42,7 +61,7 @@
 			</div>
 
 			<div class="track-container">
-				<div class="image-track">
+				<div class="image-track track-right">
 					<div class="image-wrapper">
 						<img src={Image4} alt="graph showing Schubert's career" />
 					</div>
@@ -64,7 +83,8 @@
 		justify-content: center;
 		align-items: center;
 
-		background-color: var(--palette-yellow-muted);
+		padding: 2rem;
+		background-color: var(--palette-green-muted);
 	}
 
 	.card {
@@ -77,7 +97,7 @@
 		width: 100%;
 		max-width: max(75vw, 1200px);
 		height: 100%;
-		padding: 3rem 3rem;
+		padding: 2rem;
 		background-color: var(--color-background);
 
 		background: #f5f5f5;
@@ -112,13 +132,13 @@
 			}
 
 			p {
-				max-width: 30ch;
-				font-size: 1.6rem;
+				max-width: 45ch;
+				font-size: 20px;
 			}
 		}
 
 		.image-content {
-			--grid-gap: 0.5rem;
+			--grid-gap: 0.55rem;
 
 			display: flex;
 			flex-direction: row;
@@ -131,14 +151,28 @@
 			padding: 0;
 
 			.track-container {
+				position: relative;
 				width: 50%;
 				height: 100%;
-				max-height: 60vh;
+				max-height: 70vh;
 				overflow: hidden;
 
 				border-top: 1px solid #666;
 				border-bottom: 1px solid #666;
-				border-radius: 6px;
+				border-radius: 4px;
+
+				&::after {
+					position: absolute;
+					left: 0;
+					top: 0;
+					content: '';
+					display: block;
+					z-index: 1;
+					width: 100%;
+					height: 20px;
+					box-shadow: inset 1px 4px 4px rgba(0, 0, 0, 0.3);
+					pointer-events: none;
+				}
 			}
 
 			.image-track {
@@ -151,6 +185,14 @@
 				width: 100%;
 				height: 100%;
 				max-height: 100%;
+
+				&.track-left {
+					transform: translateY(calc(var(--scroll-offset) * -1 * 40%));
+				}
+
+				&.track-right {
+					transform: translateY(calc(var(--scroll-offset) * 40% - 20%));
+				}
 
 				.image-wrapper {
 					display: flex;

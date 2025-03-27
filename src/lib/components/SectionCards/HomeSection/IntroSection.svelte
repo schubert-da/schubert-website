@@ -44,7 +44,7 @@
 
 		height: calc(100vh);
 		padding-top: 3rem;
-		background-color: var(--palette-green-muted);
+		background-color: var(--palette-yellow-muted);
 	}
 
 	.card {
