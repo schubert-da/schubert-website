@@ -57,6 +57,9 @@
 					<div class="image-wrapper">
 						<img src={Image3} alt="graph showing Schubert's career" />
 					</div>
+					<div class="image-wrapper">
+						<img src={Image1} alt="graph showing Schubert's career" />
+					</div>
 				</div>
 			</div>
 

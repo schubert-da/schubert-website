@@ -1,5 +1,5 @@
 <script>
-	import CareerImage from '$lib/assets/images/schubert-career-viz.png';
+	import CareerImage from '$lib/assets/images/life-viz/schubert-career-viz.png';
 	let captionHeight = 0;
 </script>
 

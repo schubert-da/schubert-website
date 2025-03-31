@@ -1,9 +1,9 @@
 <script>
-	import StudyWorkImage from '$lib/assets/images/study-work.png';
-	import ArtLearningImage from '$lib/assets/images/art-learning.png';
-	import DatavizLearningImage from '$lib/assets/images/dataviz.png';
-	import DatavizDevelopmentImage from '$lib/assets/images/dataviz-development.png';
-	import CareerBackground from '$lib/assets/images/career-layer-bg.png';
+	import StudyWorkImage from '$lib/assets/images/life-viz/study-work.png';
+	import ArtLearningImage from '$lib/assets/images/life-viz/art-learning.png';
+	import DatavizLearningImage from '$lib/assets/images/life-viz/dataviz.png';
+	import DatavizDevelopmentImage from '$lib/assets/images/life-viz/dataviz-development.png';
+	import CareerBackground from '$lib/assets/images/life-viz/career-layer-bg.png';
 
 	import { scrollerParams } from '$lib/utils/stores';
 
