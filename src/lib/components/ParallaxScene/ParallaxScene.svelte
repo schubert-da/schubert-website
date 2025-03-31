@@ -1,9 +1,10 @@
 <script>
+	import gsap from 'gsap';
+
 	import StudyWorkImage from '$lib/assets/images/life-viz/study-work.png';
 	import ArtLearningImage from '$lib/assets/images/life-viz/art-learning.png';
 	import DatavizLearningImage from '$lib/assets/images/life-viz/dataviz.png';
 	import DatavizDevelopmentImage from '$lib/assets/images/life-viz/dataviz-development.png';
-
 	import StudyWorkImageViz from '$lib/assets/images/life-viz/study-work-viz.png';
 	import ArtLearningImageViz from '$lib/assets/images/life-viz/art-learning-viz.png';
 	import DatavizLearningImageViz from '$lib/assets/images/life-viz/dataviz-viz.png';
@@ -29,9 +30,56 @@
 
 		return (OFFSET - scrollerParams.offset) * speed * -100;
 	}
+
+	function openingAnimation(sceneContainerElement) {
+		const timeline = gsap.timeline();
+
+		const layers = Array.from(sceneContainerElement.querySelectorAll('.layer'));
+		// for each layer create a timeline and add it to the main timeline
+		layers.reverse().forEach((layer, index) => {
+			const layerTimeline = gsap.timeline();
+
+			let childChartImage = layer.querySelector('.chart-image');
+			let childArtImage = layer.querySelector('.art-image');
+
+			layerTimeline.to(childChartImage, {
+				opacity: 0,
+				scale: 0.96,
+				duration: 0.3,
+				ease: 'power2.inOut'
+			});
+
+			layerTimeline.to(
+				childArtImage,
+				{
+					opacity: 1,
+					duration: 0.35,
+					ease: 'power2.inOut'
+				},
+				'-=0.25'
+			);
+
+			layerTimeline.from(
+				childArtImage,
+				{
+					scale: 0.96,
+					duration: 0.5,
+					ease: 'bounce.out'
+				},
+				'-=0.25'
+			);
+
+			let startTime = 0.6 + (index * 0.5 * (20 - index)) / 20;
+			timeline.add(layerTimeline, startTime);
+		});
+
+		return () => {
+			timeline.kill();
+		};
+	}
 </script>
 
-<div class="scene-container">
+<div class="scene-container" use:openingAnimation>
 	<img class="placeholder-image" src={CareerBackground} alt="Layer" />
 	{#each layerConfig as { src, chartSrc, order, speed }, i}
 		<div
@@ -79,8 +127,10 @@
 				width: 100%;
 				height: 100%;
 				object-fit: contain;
+			}
 
-				opacity: 1;
+			img.art-image {
+				opacity: 0;
 			}
 
 			img.chart-image {
@@ -91,7 +141,7 @@
 				height: 100%;
 
 				z-index: 1;
-				opacity: 0;
+				opacity: 1;
 			}
 		}
 	}
