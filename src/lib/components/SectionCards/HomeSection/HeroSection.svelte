@@ -1,22 +1,37 @@
 <script>
-	import CareerImage from '$lib/assets/images/schubert-career-viz.png';
 	import ParallaxScene from '$lib/components/ParallaxScene/ParallaxScene.svelte';
 	import { navbarHeight } from '$lib/utils/stores';
+	import { gsap } from 'gsap';
 
 	let captionHeight = 0;
+
+	function animateHighlightText(element) {
+		gsap.from(element, {
+			opacity: 0,
+			y: 20,
+			duration: 0.5,
+			delay: 0.5,
+			ease: 'spring.in'
+		});
+	}
 </script>
 
 <section style="--navbar-height: {$navbarHeight}px">
 	<div class="card">
 		<div class="text-content">
-			<h2>Hi there, I&#x2019m <span class="highlight">Schubert!</span></h2>
+			<h2 class="title">
+				Hi there, I&#x2019m <div class="highlight">
+					<span use:animateHighlightText>Schubert!</span>
+				</div>
+			</h2>
+
 			<div class="description">
 				<p>
 					I build charts and weird interactives on the web while I struggle to fill out a sketchbook
 					on the side.
 				</p>
 				<p>
-					If it's creative and I've worked on it, you will likely find it in realms of this site
+					If it's creative and I've worked on it, you will likely find it in the realms of this site
 				</p>
 			</div>
 		</div>
@@ -54,6 +69,7 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+		gap: 1rem;
 
 		width: 100%;
 		max-width: max(75vw, 1200px);
@@ -67,16 +83,21 @@
 		border-radius: 20px;
 
 		.text-content {
-			h2 {
+			.title {
 				font-size: 3rem;
 				margin-bottom: 2rem;
 
-				span.highlight {
+				div.highlight {
+					display: inline-block;
 					padding: 0rem 0.65rem;
 					color: white;
 					background-color: var(--palette-yellow-muted);
 					font-size: 2.75rem;
 					border-radius: 7px;
+
+					span {
+						display: block;
+					}
 				}
 			}
 
