@@ -1,9 +1,12 @@
 <script>
 	import ParallaxScene from '$lib/components/ParallaxScene/ParallaxScene.svelte';
 	import { navbarHeight } from '$lib/utils/stores';
+	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';
 
 	let captionHeight = 0;
+	let cardElement = 0;
+	let hoverTimeline = gsap.timeline({ paused: true });
 
 	function animateHighlightText(element) {
 		gsap.from(element, {
@@ -14,10 +17,46 @@
 			ease: 'spring.in'
 		});
 	}
+
+	onMount(() => {
+		const imageContentElement = cardElement.querySelector('.image-content');
+		const sceneContainer = cardElement.querySelector('.image-container .scene-container');
+		const textContentElement = cardElement.querySelector('.text-content');
+
+		hoverTimeline.fromTo(
+			imageContentElement,
+			{
+				width: '50%',
+				scale: 1
+			},
+			{
+				width: '100%',
+				duration: 0.25,
+				ease: 'power3.in'
+			}
+		);
+
+		hoverTimeline.fromTo(
+			sceneContainer,
+			{
+				scale: 1
+			},
+			{
+				scale: 1.05,
+				duration: 0.25,
+				ease: 'power2.in'
+			},
+			'<'
+		);
+	});
+
+	function handleImageHover() {
+		hoverTimeline.restart();
+	}
 </script>
 
 <section style="--navbar-height: {$navbarHeight}px">
-	<div class="card">
+	<div class="card" bind:this={cardElement}>
 		<div class="text-content">
 			<h2 class="title">
 				Hi there, I&#x2019m <div class="highlight">
@@ -36,10 +75,17 @@
 			</div>
 		</div>
 
-		<div class="image-content">
+		<div
+			class="image-content"
+			role="img"
+			on:mouseenter={handleImageHover}
+			on:mouseleave={() => {
+				console.log('leave');
+				hoverTimeline.reverse();
+			}}
+		>
 			<div class="image-container">
 				<div class="image-wrapper" style="--caption-height: {captionHeight}px">
-					<!-- <img src={CareerImage} alt="graph showing Schubert's career" /> -->
 					<ParallaxScene></ParallaxScene>
 				</div>
 
@@ -74,7 +120,7 @@
 		width: 100%;
 		max-width: max(75vw, 1200px);
 		height: 100%;
-		padding: 0 3rem;
+		padding: 0 2rem 0 3rem;
 		background-color: var(--color-background);
 
 		background: #f5f5f5;
@@ -83,6 +129,9 @@
 		border-radius: 20px;
 
 		.text-content {
+			width: 45%;
+			transition: width 1s ease-in;
+
 			.title {
 				font-size: 3rem;
 				margin-bottom: 2rem;
@@ -111,7 +160,7 @@
 
 			p {
 				max-width: 30ch;
-				font-size: 1.6rem;
+				font-size: 1.5rem;
 			}
 		}
 
@@ -123,9 +172,10 @@
 			overflow: hidden;
 
 			width: 50%;
-			max-width: 700px;
 			height: 100%;
 			padding: 1.5rem 0;
+
+			transition: width 1s ease-in;
 
 			.image-container {
 				width: 100%;
