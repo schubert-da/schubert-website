@@ -5,6 +5,7 @@
 	import Image4 from '$lib/assets/images/works/wdvp-4.png';
 	import Image5 from '$lib/assets/images/works/wdvp-5.png';
 	import Image6 from '$lib/assets/images/works/wdvp-6.png';
+	import ArtLearningImage from '$lib/assets/images/life-viz/art-learning.png?url';
 
 	import { scrollerParams } from '$lib/utils/stores';
 
@@ -20,6 +21,11 @@
 			</div>
 
 			<div class="description">
+				<img
+					src={ArtLearningImage}
+					alt="graph showing Schubert's career"
+					style="width: 300px; height: auto; float: left; margin-right: 1rem; shape-outside: url({ArtLearningImage}); shape-margin: 1rem;"
+				/>
 				<p>
 					An interactive story about shortfall of progress towards achieving UN's SDG Goals. This
 					piece ended up making it to the shortlist of the World Data Visualisation Prize in 2024.
@@ -127,16 +133,18 @@
 			}
 
 			.description {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: flex-start;
-				gap: 1rem;
+				// display: flex;
+				// flex-direction: column;
+				// justify-content: center;
+				// align-items: flex-start;
+				// gap: 1rem;
+				text-align: justify;
 			}
 
 			p {
 				max-width: 45ch;
 				font-size: 20px;
+				margin-bottom: 1rem;
 			}
 		}
 
