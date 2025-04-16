@@ -29,6 +29,26 @@
 
     --font-display: 'DM Serif Display', serif;
     --font-body: 'Inter Tight', sans-serif;
+
+
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1400,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+    /* Step -2: 11.1111px → 15.36px */
+    --font-size--2: clamp(0.6944rem, 0.6158rem + 0.3934vw, 0.96rem);
+    /* Step -1: 13.3333px → 19.2px */
+    --font-size--1: clamp(0.8333rem, 0.7247rem + 0.5432vw, 1.2rem);
+    /* Step 0: 16px → 24px */
+    --font-size-0: clamp(1rem, 0.8519rem + 0.7407vw, 1.5rem);
+    /* Step 1: 19.2px → 30px */
+    --font-size-1: clamp(1.2rem, 1rem + 1vw, 1.875rem);
+    /* Step 2: 23.04px → 37.5px */
+    --font-size-2: clamp(1.44rem, 1.1722rem + 1.3389vw, 2.3438rem);
+    /* Step 3: 27.648px → 46.875px */
+    --font-size-3: clamp(1.728rem, 1.3719rem + 1.7803vw, 2.9297rem);
+    /* Step 4: 33.1776px → 58.5938px */
+    --font-size-4: clamp(2.0736rem, 1.6029rem + 2.3533vw, 3.6621rem);
+    /* Step 5: 39.8131px → 73.2422px */
+    --font-size-5: clamp(2.4883rem, 1.8693rem + 3.0953vw, 4.5776rem);
 }
 
 body {
@@ -50,4 +70,6 @@ h4,
 h5,
 h6 {
     font-family: var(--font-display);
+    padding: 0;
+    margin: 0;
 }

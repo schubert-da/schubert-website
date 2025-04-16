@@ -23,6 +23,7 @@
 		const sceneContainer = cardElement.querySelector('.image-container .scene-container');
 		const textContentElement = cardElement.querySelector('.text-content');
 
+		hoverTimeline.clear();
 		hoverTimeline.fromTo(
 			imageContentElement,
 			{
@@ -31,8 +32,9 @@
 			},
 			{
 				width: '100%',
-				duration: 0.25,
-				ease: 'power3.in'
+				duration: 0.5,
+				delay: 0,
+				ease: 'power2.out'
 			}
 		);
 
@@ -43,8 +45,8 @@
 			},
 			{
 				scale: 1.05,
-				duration: 0.25,
-				ease: 'power2.in'
+				duration: 0.5,
+				ease: 'power2.out'
 			},
 			'<'
 		);
@@ -75,25 +77,24 @@
 			</div>
 		</div>
 
-		<div
-			class="image-content"
-			role="img"
-			on:mouseenter={handleImageHover}
-			on:mouseleave={() => {
-				console.log('leave');
-				hoverTimeline.reverse();
-			}}
-		>
+		<div class="image-content">
 			<div class="image-container">
-				<div class="image-wrapper" style="--caption-height: {captionHeight}px">
+				<div
+					class="image-wrapper"
+					style="--caption-height: {captionHeight}px"
+					on:mouseenter={handleImageHover}
+					on:mouseleave={() => {
+						console.log('leave');
+						hoverTimeline.reverse();
+					}}
+					role="img"
+				>
 					<ParallaxScene></ParallaxScene>
 				</div>
 
-				<div class="caption" bind:clientHeight={captionHeight}>
-					<p>
-						<span class="header">Urban sketching</span>
-						<span>USK Goa sessison near the Old Patto Bridge, Goa</span>
-					</p>
+				<div class="caption-row" bind:clientHeight={captionHeight}>
+					<input type="checkbox" name="chart type" id="chart-type" />
+					<label for="chart-type"></label>
 				</div>
 			</div>
 		</div>
@@ -133,7 +134,7 @@
 			transition: width 1s ease-in;
 
 			.title {
-				font-size: 3rem;
+				font-size: var(--font-size-3);
 				margin-bottom: 2rem;
 
 				div.highlight {
@@ -141,7 +142,7 @@
 					padding: 0rem 0.65rem;
 					color: white;
 					background-color: var(--palette-yellow-muted);
-					font-size: 2.75rem;
+					font-size: calc(var(--font-size-3) - 2px);
 					border-radius: 7px;
 
 					span {
@@ -160,7 +161,7 @@
 
 			p {
 				max-width: 30ch;
-				font-size: 1.5rem;
+				font-size: var(--font-size-0);
 			}
 		}
 
@@ -174,8 +175,6 @@
 			width: 50%;
 			height: 100%;
 			padding: 1.5rem 0;
-
-			transition: width 1s ease-in;
 
 			.image-container {
 				width: 100%;
@@ -219,21 +218,53 @@
 					background-color: #aaa;
 				}
 
-				.caption {
+				.caption-row {
 					display: flex;
 					flex-direction: row;
 					align-items: baseline;
 					justify-content: flex-end;
 					gap: 0.25rem;
 
-					p {
-						font-size: 1.125rem;
-						text-align: right;
+					label {
+						--toggle-button-size: 20px;
+						--toggle-padding: 3px;
+
+						position: relative;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						width: 60px;
+						height: calc(var(--toggle-button-size) + var(--toggle-padding) * 2 + 2px);
+						padding: var(--toggle-padding);
+						border: 2px solid #666;
+						border-radius: 30px;
+						background: var(--palette-background);
+
+						&::after {
+							content: '';
+							position: absolute;
+							top: 50%;
+							left: var(--toggle-padding);
+							transform: translateY(-50%);
+
+							width: var(--toggle-button-size);
+							height: var(--toggle-button-size);
+							background-color: var(--color-background);
+							border: 2px solid #666;
+							border-radius: 100rem;
+						}
 					}
 
-					span.header {
-						font-size: 1.25rem;
-						font-weight: 700;
+					input {
+						opacity: 0;
+						width: 0;
+						height: 0;
+						position: absolute;
+
+						&:checked + label {
+							background: var(--palette-yellow-muted);
+						}
 					}
 				}
 			}

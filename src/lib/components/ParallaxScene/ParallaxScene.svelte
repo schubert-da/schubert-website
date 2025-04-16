@@ -112,7 +112,7 @@
 
 		.layer {
 			position: absolute;
-			top: 50%;
+			top: 54%;
 			left: 50%;
 			z-index: var(--order);
 			display: flex;
