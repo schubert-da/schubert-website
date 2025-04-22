@@ -1,10 +1,31 @@
 <script>
 	import { worksData } from '$lib/assets/data/worksData';
 	import ArrowIcon from '$lib/assets/images/icons/icon-arrow.svg?raw';
+
+	let screenWidth = 1000;
+
+	$: processedWorksData = processWorksData(worksData, screenWidth);
+
+	function processWorksData(data, screenWidth) {
+		if (screenWidth > 700) {
+			return data;
+		} else {
+			let newData = [];
+			data.forEach((project) => {
+				let work = Object.assign({}, project);
+				work.blocks = work.blocks.sort((a, b) => a.cols - b.cols);
+				newData.push(work);
+			});
+
+			return newData;
+		}
+	}
 </script>
 
+<svelte:window bind:innerWidth={screenWidth} />
+
 <div class="grid">
-	{#each worksData as work}
+	{#each processedWorksData as work}
 		<div class="grid-row">
 			<div class="blocks">
 				{#each work.blocks as block}
@@ -102,11 +123,13 @@
 						margin-bottom: 10px;
 
 						font-size: var(--font-size-1);
+						text-wrap: pretty;
 						line-height: 1;
 					}
 
 					p {
 						font-size: var(--font-size--1);
+						text-wrap: pretty;
 					}
 
 					a {
@@ -121,6 +144,7 @@
 						text-decoration: none;
 
 						span {
+							font-size: var(--font-size--1);
 							color: var(--text-grey);
 							text-transform: uppercase;
 						}
@@ -167,6 +191,33 @@
 
 		.grid-row:not(:last-of-type) .project-details {
 			border-bottom: 4px solid #333;
+		}
+
+		@media (max-width: 1000px) {
+			.blocks {
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: auto;
+				height: calc(2 * var(--row-height));
+			}
+		}
+
+		@media (max-width: 700px) {
+			--row-height: 180px;
+
+			.blocks {
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: auto;
+				height: calc(3 * var(--row-height));
+			}
+
+			.project-details {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0.375rem;
+
+				padding: 0.5rem 0.5rem;
+			}
 		}
 	}
 </style>

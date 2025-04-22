@@ -25,7 +25,7 @@
 
 		width: 100%;
 		height: 100%;
-		padding: 2rem;
+		padding: var(--section-padding);
 		background-color: var(--palette-yellow-muted);
 	}
 
@@ -39,7 +39,7 @@
 		width: 100%;
 		max-width: max(75vw, 1200px);
 		height: 100%;
-		padding: 2rem;
+		padding: 2rem var(--card-padding);
 		background-color: var(--color-background);
 		background: #f5f5f5;
 		border: 1px solid #929292;
@@ -60,6 +60,12 @@
 
 		.works-grid {
 			width: 100%;
+		}
+
+		@media (max-width: 700px) {
+			.card {
+				gap: 1.5rem;
+			}
 		}
 	}
 </style>
