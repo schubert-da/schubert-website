@@ -55,6 +55,8 @@
 	function handleImageHover() {
 		hoverTimeline.restart();
 	}
+
+	let toggleChart;
 </script>
 
 <section style="--navbar-height: {$navbarHeight}px">
@@ -84,16 +86,21 @@
 					style="--caption-height: {captionHeight}px"
 					on:mouseenter={handleImageHover}
 					on:mouseleave={() => {
-						console.log('leave');
 						hoverTimeline.reverse();
 					}}
 					role="img"
 				>
-					<ParallaxScene></ParallaxScene>
+					<ParallaxScene bind:toggleChartState={toggleChart}></ParallaxScene>
 				</div>
 
 				<div class="caption-row" bind:clientHeight={captionHeight}>
-					<input type="checkbox" name="chart type" id="chart-type" />
+					<input
+						type="checkbox"
+						name="chart type"
+						id="chart-type"
+						on:change={toggleChart}
+						checked
+					/>
 					<label for="chart-type">
 						<span class="label-text art">ART</span>
 						<span class="label-text viz">VIZ</span>

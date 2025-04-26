@@ -20,6 +20,18 @@
 		{ src: DatavizDevelopmentImage, chartSrc: DatavizDevelopmentImageViz, order: 4, speed: 0.3 }
 	];
 	export const cardIndex = 0;
+	export const toggleChartState = () => {
+		if (currentState === 'art') {
+			timeline.reverse();
+			currentState = 'viz';
+		} else {
+			timeline.restart();
+			currentState = 'art';
+		}
+	};
+
+	let timeline;
+	let currentState = 'art';
 
 	function calculateYTranslate(scrollerParams, speed) {
 		let OFFSET = 0.3;
@@ -32,7 +44,7 @@
 	}
 
 	function openingAnimation(sceneContainerElement) {
-		const timeline = gsap.timeline();
+		timeline = gsap.timeline();
 
 		const layers = Array.from(sceneContainerElement.querySelectorAll('.layer'));
 		// for each layer create a timeline and add it to the main timeline
