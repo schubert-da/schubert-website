@@ -24,7 +24,7 @@
 				<img
 					src={ArtLearningImage}
 					alt="graph showing Schubert's career"
-					style="width: 300px; height: auto; float: left; margin-right: 1rem; shape-outside: url({ArtLearningImage}); shape-margin: 1rem;"
+					style="width: 100%; max-width: 300px; height: auto; float: left; margin-right: 1rem; shape-outside: url({ArtLearningImage}); shape-margin: 1rem;"
 				/>
 				<p>
 					An interactive story about shortfall of progress towards achieving UN's SDG Goals. This

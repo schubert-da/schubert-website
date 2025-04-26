@@ -131,6 +131,7 @@
 		width: 100%;
 		max-width: max(75vw, 1200px);
 		height: 100%;
+		max-height: 100%;
 		padding: 0 2rem 0 3rem;
 		background-color: var(--color-background);
 
@@ -312,6 +313,44 @@
 						}
 					}
 				}
+			}
+		}
+	}
+
+	@media (max-width: 800px) {
+		section {
+			height: unset;
+		}
+
+		.card {
+			flex-direction: column-reverse;
+			align-items: center;
+			gap: 0rem;
+
+			padding: 2rem var(--section-padding);
+
+			.text-content {
+				width: 100%;
+				text-align: start;
+
+				.title {
+					margin-bottom: 1rem;
+				}
+
+				.description {
+					gap: 0.5rem;
+				}
+			}
+
+			.scene-container {
+				width: 100%;
+				max-width: 100%;
+			}
+
+			.image-content {
+				width: 100% !important;
+				max-width: 100%;
+				padding: 0;
 			}
 		}
 	}
