@@ -94,7 +94,10 @@
 
 				<div class="caption-row" bind:clientHeight={captionHeight}>
 					<input type="checkbox" name="chart type" id="chart-type" />
-					<label for="chart-type"></label>
+					<label for="chart-type">
+						<span class="label-text art">ART</span>
+						<span class="label-text viz">VIZ</span>
+					</label>
 				</div>
 			</div>
 		</div>
@@ -226,7 +229,7 @@
 					gap: 0.25rem;
 
 					label {
-						--toggle-button-size: 20px;
+						--toggle-button-size: 24px;
 						--toggle-padding: 3px;
 
 						position: relative;
@@ -234,12 +237,13 @@
 						align-items: center;
 						justify-content: center;
 
-						width: 60px;
+						width: 80px;
 						height: calc(var(--toggle-button-size) + var(--toggle-padding) * 2 + 2px);
 						padding: var(--toggle-padding);
 						border: 2px solid #666;
 						border-radius: 30px;
-						background: var(--palette-background);
+						background: #abb3af;
+						cursor: pointer;
 
 						&::after {
 							content: '';
@@ -253,6 +257,28 @@
 							background-color: var(--color-background);
 							border: 2px solid #666;
 							border-radius: 100rem;
+
+							transition: left 0.25s ease-in 0.1s;
+						}
+
+						.label-text {
+							--text-padding: 0.6rem;
+							position: absolute;
+
+							font-weight: 600;
+							font-size: var(--font-size--1);
+							transition: opacity 0.1s ease-in-out 0.2s;
+
+							&.art {
+								opacity: 0;
+								left: var(--text-padding);
+								color: #5d4617;
+							}
+							&.viz {
+								opacity: 1;
+								right: var(--text-padding);
+								color: #59635f;
+							}
 						}
 					}
 
@@ -264,6 +290,18 @@
 
 						&:checked + label {
 							background: var(--palette-yellow-muted);
+
+							.label-text.viz {
+								opacity: 0;
+							}
+
+							.label-text.art {
+								opacity: 1;
+							}
+
+							&:after {
+								left: calc(100% - var(--toggle-button-size) - var(--toggle-padding));
+							}
 						}
 					}
 				}
