@@ -2,6 +2,7 @@
 	import '../styles/styles.css';
 	import Navbar from '$lib/components/Navbar/Navbar.svelte';
 	import { navbarHeight } from '$lib/utils/stores';
+	import PaperTexture from '$lib/assets/images/paper-texture.jpeg';
 
 	let { children } = $props();
 
@@ -33,4 +34,6 @@
 
 <Navbar {showNav}></Navbar>
 
-{@render children()}
+<main style="--card-texture: url({PaperTexture})">
+	{@render children()}
+</main>

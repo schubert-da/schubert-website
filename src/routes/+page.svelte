@@ -5,7 +5,6 @@
 	import FeaturedWork from '$lib/components/Works/FeaturedWork.svelte';
 	import { scrollerParams } from '$lib/utils/stores';
 	import Scroller from '@sveltejs/svelte-scroller';
-
 	let index, offset, progress;
 	$: if (index || offset || progress) {
 		scrollerParams.set({ index, offset, progress });
@@ -23,8 +22,3 @@
 		<WorkSection></WorkSection>
 	</div>
 </Scroller>
-
-<main></main>
-
-<style>
-</style>

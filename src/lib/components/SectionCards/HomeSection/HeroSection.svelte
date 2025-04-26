@@ -135,7 +135,6 @@
 		padding: 0 2rem 0 3rem;
 		background-color: var(--color-background);
 
-		background: #f5f5f5;
 		border: 1px solid #929292;
 		box-shadow: -4px 5px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
@@ -143,6 +142,7 @@
 		.text-content {
 			width: 45%;
 			transition: width 1s ease-in;
+			z-index: 1;
 
 			.title {
 				font-size: var(--font-size-3);
@@ -182,6 +182,7 @@
 			justify-content: center;
 			align-items: flex-start;
 			overflow: hidden;
+			z-index: 1;
 
 			width: 50%;
 			height: 100%;
@@ -325,7 +326,7 @@
 		.card {
 			flex-direction: column-reverse;
 			align-items: center;
-			gap: 0rem;
+			gap: 1.5rem;
 
 			padding: 2rem var(--section-padding);
 
@@ -339,6 +340,10 @@
 
 				.description {
 					gap: 0.5rem;
+
+					p {
+						max-width: 40ch;
+					}
 				}
 			}
 
