@@ -190,7 +190,7 @@
 		}
 
 		.grid-row:not(:last-of-type) .project-details {
-			border-bottom: 4px solid #333;
+			border-bottom: 6px solid #333;
 		}
 
 		@media (max-width: 1000px) {
