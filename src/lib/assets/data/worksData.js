@@ -15,6 +15,16 @@ import BehanBoxImage2 from '$lib/assets/images/works/behanbox-2.png';
 import BehanBoxImage3 from '$lib/assets/images/works/behanbox-3.png';
 import BehanBoxImage4 from '$lib/assets/images/works/behanbox-4.png';
 
+import WWFMilkStoryImage1 from '$lib/assets/images/works/wwfmilk-1.png';
+import WWFMilkStoryImage2 from '$lib/assets/images/works/wwfmilk-2.png';
+import WWFMilkStoryImage3 from '$lib/assets/images/works/wwfmilk-3.png';
+import WWFMilkStoryImage4 from '$lib/assets/images/works/wwfmilk-4.png';
+
+import WWFArkavathiImage1 from '$lib/assets/images/works/wwfarkavathi-1.png';
+import WWFArkavathiImage2 from '$lib/assets/images/works/wwfarkavathi-2.png';
+import WWFArkavathiImage3 from '$lib/assets/images/works/wwfarkavathi-3.png';
+import WWFArkavathiImage4 from '$lib/assets/images/works/wwfarkavathi-4.png';
+
 export const worksData = [
     {
         title: 'One Step Ahead',
@@ -68,6 +78,42 @@ export const worksData = [
             },
             { type: 'image', src: BehanBoxImage3, alt: 'temp alt text', cols: 1 },
             { type: 'image', src: BehanBoxImage4, alt: 'temp alt text', cols: 1 },
+        ]
+    },
+    {
+        title: 'WWF Milk Story',
+        client: 'World Wildlife Fund India',
+        projectType: 'Interactive Story',
+        blocks: [
+            { type: 'image', src: WWFMilkStoryImage2, alt: 'temp alt text', cols: 1 },
+            {
+                type: 'text',
+                title: 'Dairy Cold Chain Transition',
+                description: 'An interactive story on the pivotal role of technology in dairy delivery chain in India',
+                link: 'https://myfirstvote.behanbox.com/',
+                cols: 2
+            },
+            { type: 'image', src: WWFMilkStoryImage3, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage1, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage4, alt: 'temp alt text', cols: 1 },
+        ]
+    },
+    {
+        title: 'WWF Arkavathi',
+        client: 'World Wildlife Fund India',
+        projectType: 'Interactive Story',
+        blocks: [
+            { type: 'image', src: WWFArkavathiImage4, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFArkavathiImage1, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFArkavathiImage3, alt: 'temp alt text', cols: 1 },
+            {
+                type: 'text',
+                title: 'Reviving Arkavathi',
+                description: 'An interactive story on the restoration of the Arkavathi river basin in Karnataka',
+                link: 'https://myfirstvote.behanbox.com/',
+                cols: 2
+            },
+            { type: 'image', src: WWFArkavathiImage2, alt: 'temp alt text', cols: 1 },
         ]
     },
 ];
