@@ -10,6 +10,11 @@ import ISNImage2 from '$lib/assets/images/works/isn-2.png';
 import ISNImage3 from '$lib/assets/images/works/isn-3.png';
 import ISNImage4 from '$lib/assets/images/works/isn-4.png';
 
+import BehanBoxImage1 from '$lib/assets/images/works/behanbox-1.png';
+import BehanBoxImage2 from '$lib/assets/images/works/behanbox-2.png';
+import BehanBoxImage3 from '$lib/assets/images/works/behanbox-3.png';
+import BehanBoxImage4 from '$lib/assets/images/works/behanbox-4.png';
+
 export const worksData = [
     {
         title: 'One Step Ahead',
@@ -38,13 +43,31 @@ export const worksData = [
                 type: 'text',
                 title: 'Global Kidney Health Atlas',
                 description: 'A dashboard to visualize the data collected by the ISN on kidney health around the world',
-                link: 'https://www.google.com',
+                link: 'https://gkha.theisn.org/',
                 cols: 2
             },
             { type: 'image', src: ISNImage1, alt: 'temp alt text', cols: 1 },
             { type: 'image', src: ISNImage3, alt: 'temp alt text', cols: 1 },
             { type: 'image', src: ISNImage2, alt: 'temp alt text', cols: 1 },
             { type: 'image', src: ISNImage4, alt: 'temp alt text', cols: 1 },
+        ]
+    },
+    {
+        title: 'Mera First Vote',
+        client: 'BehanBox',
+        projectType: 'Interactive Story',
+        blocks: [
+            { type: 'image', src: BehanBoxImage1, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: BehanBoxImage2, alt: 'temp alt text', cols: 2 },
+            {
+                type: 'text',
+                title: 'Mera First Vote',
+                description: 'Documenting the aspirations of young women and queer Indians',
+                link: 'https://myfirstvote.behanbox.com/',
+                cols: 1
+            },
+            { type: 'image', src: BehanBoxImage3, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: BehanBoxImage4, alt: 'temp alt text', cols: 1 },
         ]
     },
 ];
