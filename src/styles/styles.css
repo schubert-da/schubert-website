@@ -120,6 +120,7 @@ svg {
     inset: 0;
 
     background-image: var(--card-texture);
+    pointer-events: none;
     background-size: 600px 450px;
     background-repeat: repeat;
     background-position: top left;
