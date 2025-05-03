@@ -1,106 +1,121 @@
 <script>
-	import { navbarHeight } from '$lib/utils/stores';
+	import { navbarHeight, sectionHeights } from '$lib/utils/stores';
 
 	let { showNav } = $props();
 
-	let navSections = [
-		{
-			name: 'Home',
-			width: 20,
-			color: '#333333',
-			sections: [
-				{
-					name: 'hero',
-					href: '/'
-				},
-				{
-					name: 'about',
-					href: '/'
-				}
-			]
-		},
-		{
-			name: 'Works',
-			width: 60,
-			color: 'var(--palette-green-muted)',
-			sections: [
-				{
-					name: 'project 1',
-					href: '/'
-				},
-				{
-					name: 'project 2',
-					href: '/'
-				},
-				{
-					name: 'project 2',
-					href: '/'
-				},
-				{
-					name: 'project 2',
-					href: '/'
-				},
-				{
-					name: 'project 3',
-					href: '/'
-				}
-			]
-		},
-		{
-			name: 'Contact',
-			width: 10,
-			color: 'var(--color-background)',
-			sections: [
-				{
-					name: 'contact',
-					href: '/'
-				}
-			]
-		},
-		{
-			name: 'Other',
-			width: 10,
-			color: 'var(--palette-yellow-muted)',
-			sections: [
-				{
-					name: 'writing',
-					href: '/'
-				},
-				{
-					name: 'devlogs',
-					href: '/'
-				}
-			]
-		}
-	];
+	let navSections = $state([]);
+
+	$effect(() => {
+		let sections = Object.keys($sectionHeights);
+		let totalHeight = sections.reduce((acc, section) => acc + $sectionHeights[section], 0);
+
+		navSections = [
+			{
+				name: 'Home',
+				width: ($sectionHeights.home / totalHeight) * 100,
+				color: '#333333',
+				sections: [
+					{
+						name: 'hero',
+						href: '/'
+					},
+					{
+						name: 'about',
+						href: '/'
+					}
+				]
+			},
+			{
+				name: 'Works',
+				width: ($sectionHeights.works / totalHeight) * 100,
+				color: 'var(--palette-green-muted)',
+				sections: [
+					{
+						name: 'project 1',
+						href: '/'
+					},
+					{
+						name: 'project 2',
+						href: '/'
+					},
+					{
+						name: 'project 2',
+						href: '/'
+					},
+					{
+						name: 'project 2',
+						href: '/'
+					},
+					{
+						name: 'project 3',
+						href: '/'
+					}
+				]
+			},
+			{
+				name: 'Contact',
+				width: ($sectionHeights.contact / totalHeight) * 100,
+				color: 'var(--color-background)',
+				sections: [
+					{
+						name: 'contact',
+						href: '/'
+					}
+				]
+			},
+			{
+				name: 'Other',
+				width: ($sectionHeights.other / totalHeight) * 100,
+				color: 'var(--palette-yellow-muted)',
+				sections: [
+					{
+						name: 'writing',
+						href: '/'
+					},
+					{
+						name: 'devlogs',
+						href: '/'
+					}
+				]
+			}
+		];
+	});
 </script>
 
 <nav>
-	<div class="section-list" bind:clientHeight={$navbarHeight} class:show-nav={showNav}>
-		{#each navSections as category, index}
-			<div
-				class="section-wells"
-				class:light-bg={category.color === 'var(--color-background)'}
-				style="--category-width: {category.width}%;"
-			>
-				<ul style="--after-content: '{category.width}% {index === 0 ? 'page content' : ''}';">
-					{#each category.sections as section, index}
-						<li>
-							<a
-								href={section.href}
-								aria-label={section.name}
-								style="--category-color: {category.color}"
-							>
-								{#if index == 0}
-									<h3 class="section-title">{category.name}</h3>
-								{/if}
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</div>
-		{/each}
-	</div>
+	{#if navSections}
+		<div class="section-list" bind:clientHeight={$navbarHeight} class:show-nav={showNav}>
+			{#each navSections as category, index}
+				{#if category?.width > 0}
+					<div
+						class="section-wells"
+						class:light-bg={category.color === 'var(--color-background)'}
+						style="--category-width: {category.width}%;"
+					>
+						<ul
+							style="--after-content: '{Math.round(category.width)}% {index === 0
+								? 'page content'
+								: ''}';"
+						>
+							{#each category.sections as section, index}
+								<li>
+									<a
+										href={section.href}
+										aria-label={section.name}
+										style="--category-color: {category.color}"
+									>
+										{#if index == 0}
+											<h3 class="section-title">{category.name}</h3>
+										{/if}
+									</a>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
+			{/each}
+		</div>
+	{/if}
 </nav>
 
 <div class="navbar-spacer" style="--navbar-height: {$navbarHeight}px"></div>

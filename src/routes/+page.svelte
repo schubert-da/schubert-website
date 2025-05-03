@@ -3,7 +3,7 @@
 	import IntroSection from '$lib/components/SectionCards/HomeSection/IntroSection.svelte';
 	import WorkSection from '$lib/components/SectionCards/WorkSection/WorkSection.svelte';
 	import FeaturedWork from '$lib/components/Works/FeaturedWork.svelte';
-	import { scrollerParams } from '$lib/utils/stores';
+	import { scrollerParams, sectionHeights } from '$lib/utils/stores';
 	import Scroller from '@sveltejs/svelte-scroller';
 	let index, offset, progress;
 	$: if (index || offset || progress) {
@@ -15,10 +15,13 @@
 	<div slot="background"></div>
 
 	<div slot="foreground">
-		<HeroSection></HeroSection>
-		<FeaturedWork></FeaturedWork>
-		<!-- <IntroSection></IntroSection> -->
+		<div class="intro-section-container" bind:clientHeight={$sectionHeights.home}>
+			<HeroSection></HeroSection>
+			<FeaturedWork></FeaturedWork>
+		</div>
 
-		<WorkSection></WorkSection>
+		<div class="works-section-container" bind:clientHeight={$sectionHeights.works}>
+			<WorkSection></WorkSection>
+		</div>
 	</div>
 </Scroller>
