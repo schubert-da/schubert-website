@@ -58,8 +58,7 @@
     --section-padding: clamp(1.25rem, 0.714rem + 1.714vw, 2rem);
 
     /* will scale between 20px at 500px and 48px at 1200px. */
-    --page-padding: clamp(1.25rem, 0rem + 4vw, 3rem);
-
+    --page-padding: clamp(1rem, -0.429rem + 4.571vw, 3rem);
 }
 
 

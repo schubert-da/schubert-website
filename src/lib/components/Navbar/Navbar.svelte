@@ -127,7 +127,7 @@
 		z-index: 1000;
 
 		width: 100%;
-		padding: 0 3rem;
+		padding: 0 var(--page-padding);
 		border-radius: 8px;
 
 		.section-list {
