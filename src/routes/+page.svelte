@@ -1,4 +1,5 @@
 <script>
+	import ProcessCarousel from '$lib/components/Process/ProcessCarousel.svelte';
 	import HeroSection from '$lib/components/SectionCards/HomeSection/HeroSection.svelte';
 	import IntroSection from '$lib/components/SectionCards/HomeSection/IntroSection.svelte';
 	import WorkSection from '$lib/components/SectionCards/WorkSection/WorkSection.svelte';
@@ -17,7 +18,8 @@
 	<div slot="foreground">
 		<div class="intro-section-container" bind:clientHeight={$sectionHeights.home}>
 			<HeroSection></HeroSection>
-			<FeaturedWork></FeaturedWork>
+			<ProcessCarousel></ProcessCarousel>
+			<!-- <FeaturedWork></FeaturedWork> -->
 		</div>
 
 		<div class="works-section-container" bind:clientHeight={$sectionHeights.works}>
