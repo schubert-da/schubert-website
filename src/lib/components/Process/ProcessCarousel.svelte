@@ -156,7 +156,6 @@
 		width: 100%;
 		max-width: max(75vw, 1200px);
 		height: 100%;
-		min-height: 80vh;
 		background-color: var(--color-background);
 		padding: 0;
 
@@ -179,24 +178,24 @@
 		.card-content {
 			display: flex;
 			flex-direction: row;
-			align-items: center;
+			align-items: stretch;
 			justify-content: center;
 			gap: 2rem;
 
 			width: 100%;
 			height: 100%;
+			min-height: 80vh;
 			padding: 2.5rem var(--card-padding) 2.5rem var(--card-padding);
 
 			.page {
 				position: relative;
 				display: flex;
 				flex-direction: column;
+				justify-content: center;
 				gap: 1.5rem;
 
 				padding: 0 var(--card-padding);
 				max-width: 500px;
-				height: 100%;
-				max-height: 100%;
 
 				&:last-of-type::before {
 					position: absolute;
@@ -247,7 +246,7 @@
 					width: 80%;
 					height: 50%;
 					margin: 0 auto;
-					max-height: 20%;
+					overflow: hidden;
 
 					img {
 						width: 100%;
