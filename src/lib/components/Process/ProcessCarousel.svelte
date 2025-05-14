@@ -88,17 +88,31 @@
 					{/each}
 				</div>
 			{/each}
+
+			{#if pages.slice(currentPage, currentPage + 2).length === 1}
+				<div class="page"></div>
+			{/if}
 		</div>
 
 		<div class="card-footer">
-			<div class="icon-container">
+			<span>Tap on either side of the screen to scroll</span>
+		</div>
+	</div>
+
+	<div class="carousel-controls">
+		<button
+			class="carousel-button"
+			aria-label="previous page"
+			on:click={() => handlePageChange('prev')}
+		>
+			<div class="icon-container icon-container-left">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="100%"
 					height="100%"
 					viewBox="0 0 24 24"
 					fill="none"
-					stroke="currentColor"
+					stroke="#666"
 					stroke-width="2"
 					stroke-linecap="round"
 					stroke-linejoin="round"
@@ -106,15 +120,21 @@
 					><path d="m15 18-6-6 6-6" /></svg
 				>
 			</div>
-			<span>Tap on either side of the screen to scroll</span>
-			<div class="icon-container">
+		</button>
+
+		<button
+			class="carousel-button"
+			aria-label="next page"
+			on:click={() => handlePageChange('next')}
+		>
+			<div class="icon-container icon-container-right">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="100%"
 					height="100%"
 					viewBox="0 0 24 24"
 					fill="none"
-					stroke="currentColor"
+					stroke="#666"
 					stroke-width="2"
 					stroke-linecap="round"
 					stroke-linejoin="round"
@@ -122,16 +142,6 @@
 					><path d="m9 18 6-6-6-6" /></svg
 				>
 			</div>
-		</div>
-	</div>
-
-	<div class="carousel-controls">
-		<button class="carousel-button" on:click={() => handlePageChange('prev')}>
-			<span>Previous</span>
-		</button>
-
-		<button class="carousel-button" on:click={() => handlePageChange('next')}>
-			<span>Next</span>
 		</button>
 	</div>
 </section>
@@ -180,12 +190,12 @@
 			flex-direction: row;
 			align-items: stretch;
 			justify-content: center;
-			gap: 2rem;
+			gap: 0;
 
 			width: 100%;
 			height: 100%;
 			min-height: 80vh;
-			padding: 2.5rem var(--card-padding) 2.5rem var(--card-padding);
+			padding: 0 var(--card-padding) 0 var(--card-padding);
 
 			.page {
 				position: relative;
@@ -194,12 +204,26 @@
 				justify-content: center;
 				gap: 1.5rem;
 
-				padding: 0 var(--card-padding);
+				width: 100%;
 				max-width: 500px;
+				padding: 0 var(--card-padding);
+				background-image: linear-gradient(
+					-90deg,
+					rgba(230, 230, 230, 1) 0%,
+					rgba(247, 247, 247, 0) 18%
+				);
+
+				&:nth-of-type(2) {
+					background-image: linear-gradient(
+						90deg,
+						rgba(227, 227, 227, 1) 0%,
+						rgba(247, 247, 247, 0) 18%
+					);
+				}
 
 				&:last-of-type::before {
 					position: absolute;
-					left: -1rem;
+					left: 0rem;
 					top: 0;
 
 					content: '';
@@ -288,15 +312,6 @@
 				font-size: var(--font-size--1);
 				text-align: center;
 			}
-
-			.icon-container {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-
-				width: 1.5rem;
-				height: 1.5rem;
-			}
 		}
 	}
 
@@ -318,8 +333,50 @@
 		button {
 			width: 30vw;
 			height: 100%;
-			opacity: 50%;
+			padding: 0 2rem;
 			pointer-events: all;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+
+			&:hover {
+				background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 80%);
+
+				.icon-container {
+					transform: scale(1.1);
+				}
+			}
+
+			&:last-of-type:hover {
+				background: linear-gradient(
+					-90deg,
+					rgba(255, 255, 255, 0.3) 0%,
+					rgba(255, 255, 255, 0) 80%
+				);
+			}
+		}
+
+		.icon-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			width: clamp(2rem, 5vw, 2.5rem);
+			height: clamp(2rem, 5vw, 2.5rem);
+			padding: 0.25rem;
+			background-color: var(--color-background);
+			border-radius: 100rem;
+			border: 1px solid #929292;
+			box-shadow: --2px 3px 4px rgba(0, 0, 0, 0.25);
+			transition: transform 0.2s ease-in-out;
+
+			&.icon-container-left {
+				margin-right: auto;
+			}
+
+			&.icon-container-right {
+				margin-left: auto;
+			}
 		}
 	}
 </style>
