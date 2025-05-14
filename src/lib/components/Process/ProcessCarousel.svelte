@@ -4,7 +4,7 @@
 	import exampleImage from '$lib/assets/images/works/wdvp-2.png';
 	import { gsap } from 'gsap';
 
-	let currentPage = 0;
+	let currentPage = $state(0);
 
 	const pages = [
 		{
@@ -52,17 +52,22 @@
 			currentPage = currentPage - 1 < 0 ? 0 : currentPage - 1;
 		}
 	}
+
+	let screenWidth = $state(1000);
+	let numPages = $derived(screenWidth > 1000 ? 2 : 1);
 </script>
 
+<svelte:window bind:innerWidth={screenWidth} />
+
 <section style="--navbar-height: {$navbarHeight}px">
-	<div class="card" bind:this={cardElement}>
+	<div class="card">
 		<div class="card-header">
 			<h1>Dairy Cold Chain Transition</h1>
 		</div>
 
 		<div class="card-content">
-			{#each pages.slice(currentPage, currentPage + 2) as page}
-				<div class="page">
+			{#each pages.slice(currentPage, currentPage + numPages) as page}
+				<div class="page" class:two-pages={numPages === 2}>
 					{#each page.content as content}
 						{#if content.type === 'title'}
 							<div class="text-content">
@@ -89,8 +94,8 @@
 				</div>
 			{/each}
 
-			{#if pages.slice(currentPage, currentPage + 2).length === 1}
-				<div class="page"></div>
+			{#if pages.slice(currentPage, currentPage + numPages).length === 1 && numPages === 2}
+				<div class="page" class:two-pages={numPages === 2}></div>
 			{/if}
 		</div>
 
@@ -103,7 +108,7 @@
 		<button
 			class="carousel-button"
 			aria-label="previous page"
-			on:click={() => handlePageChange('prev')}
+			onclick={() => handlePageChange('prev')}
 		>
 			<div class="icon-container icon-container-left">
 				<svg
@@ -122,11 +127,7 @@
 			</div>
 		</button>
 
-		<button
-			class="carousel-button"
-			aria-label="next page"
-			on:click={() => handlePageChange('next')}
-		>
+		<button class="carousel-button" aria-label="next page" onclick={() => handlePageChange('next')}>
 			<div class="icon-container icon-container-right">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -207,13 +208,16 @@
 				width: 100%;
 				max-width: 500px;
 				padding: 0 var(--card-padding);
-				background-image: linear-gradient(
-					-90deg,
-					rgba(230, 230, 230, 1) 0%,
-					rgba(247, 247, 247, 0) 18%
-				);
 
-				&:nth-of-type(2) {
+				&.two-pages:nth-of-type(1) {
+					background-image: linear-gradient(
+						-90deg,
+						rgba(230, 230, 230, 1) 0%,
+						rgba(247, 247, 247, 0) 18%
+					);
+				}
+
+				&.two-pages:nth-of-type(2) {
 					background-image: linear-gradient(
 						90deg,
 						rgba(227, 227, 227, 1) 0%,
@@ -221,7 +225,7 @@
 					);
 				}
 
-				&:last-of-type::before {
+				&.two-pages:last-of-type::before {
 					position: absolute;
 					left: 0rem;
 					top: 0;
@@ -296,7 +300,7 @@
 		.card-footer {
 			display: flex;
 			flex-direction: row;
-			justify-content: space-between;
+			justify-content: center;
 			align-items: center;
 			gap: 2rem;
 
@@ -376,6 +380,30 @@
 
 			&.icon-container-right {
 				margin-left: auto;
+			}
+		}
+	}
+
+	@media (max-width: 1000px) {
+		.carousel-controls {
+			button {
+				opacity: 0;
+			}
+		}
+	}
+
+	@media (max-width: 500px) {
+		section {
+			height: calc(100vh - var(--navbar-height));
+
+			.card .card-content {
+				min-height: unset;
+			}
+
+			.card .card-header {
+				h1 {
+					font-size: var(--font-size-2);
+				}
 			}
 		}
 	}
