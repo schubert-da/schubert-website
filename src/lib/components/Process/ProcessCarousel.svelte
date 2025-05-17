@@ -32,7 +32,8 @@
 		<div class="card-content" bind:clientWidth={cardContentWidth}>
 			<div
 				class="pages-track"
-				style="--x-translate: {-(currentPage * cardContentWidth) / numPages}px"
+				style="--x-translate: {-(Math.min(currentPage, pages.length - 2) * cardContentWidth) /
+					numPages}px"
 			>
 				{#each pages.slice() as page}
 					{@const pageWidth = cardContentWidth / numPages}
@@ -63,13 +64,13 @@
 					</div>
 				{/each}
 
-				{#if pages.slice(currentPage, currentPage + numPages).length === 1 && numPages === 2}
+				<!-- {#if pages.slice(currentPage, currentPage + numPages).length === 1 && numPages === 2}
 					<div
 						class="page"
 						class:two-pages={numPages === 2}
 						style="--page-width: {cardContentWidth / numPages}px"
 					></div>
-				{/if}
+				{/if} -->
 			</div>
 		</div>
 
@@ -106,7 +107,7 @@
 			class="carousel-button"
 			aria-label="next page"
 			onclick={() => handlePageChange('next')}
-			disabled={currentPage === pages.length - 1}
+			disabled={currentPage === pages.length - 2}
 		>
 			<div class="icon-container icon-container-right">
 				<svg
