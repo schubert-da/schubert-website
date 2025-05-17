@@ -121,6 +121,7 @@
 			class="carousel-button"
 			aria-label="previous page"
 			onclick={() => handlePageChange('prev')}
+			disabled={currentPage === 0}
 		>
 			<div class="icon-container icon-container-left">
 				<svg
@@ -139,7 +140,12 @@
 			</div>
 		</button>
 
-		<button class="carousel-button" aria-label="next page" onclick={() => handlePageChange('next')}>
+		<button
+			class="carousel-button"
+			aria-label="next page"
+			onclick={() => handlePageChange('next')}
+			disabled={currentPage === pages.length - 1}
+		>
 			<div class="icon-container icon-container-right">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -190,6 +196,10 @@
 			padding: 1rem 0;
 			border-bottom: 1px solid #929292;
 			width: 100%;
+			box-shadow:
+				rgba(0, 0, 0, 0.16) 0px 2px 4px,
+				rgba(0, 0, 0, 0.23) 0px 2px 4px;
+			z-index: 1;
 
 			h1 {
 				padding: 0 var(--card-padding);
@@ -204,9 +214,11 @@
 			align-items: stretch;
 			justify-content: flex-start;
 			gap: 0;
+			overflow: hidden;
 
 			width: 100%;
 			height: 100%;
+			max-height: 75vh;
 			padding: 0;
 
 			.pages-track {
@@ -218,7 +230,6 @@
 
 				width: 100%;
 				height: 100%;
-				min-height: 80vh;
 				padding: 0;
 				transform: translateX(var(--x-translate));
 				transition: transform 0.5s ease-in-out;
@@ -228,27 +239,22 @@
 				position: relative;
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
+				justify-content: flex-start;
 				gap: 1.5rem;
 
 				width: var(--page-width);
 				min-width: var(--page-width);
-				padding: 0 calc(2 * var(--card-padding));
+				padding: calc(4 * var(--card-padding)) calc(2 * var(--card-padding));
+				padding-bottom: 0;
 				margin: 0;
 
-				&.two-pages:nth-of-type(1) {
+				&.two-pages {
 					background-image: linear-gradient(
 						-90deg,
 						rgba(230, 230, 230, 1) 0%,
-						rgba(247, 247, 247, 0) 18%
-					);
-				}
-
-				&.two-pages:nth-of-type(2) {
-					background-image: linear-gradient(
-						90deg,
-						rgba(227, 227, 227, 1) 0%,
-						rgba(247, 247, 247, 0) 18%
+						rgba(247, 247, 247, 0) 18%,
+						rgba(247, 247, 247, 0) 82%,
+						rgba(230, 230, 230, 1) 100%
 					);
 				}
 
@@ -334,6 +340,10 @@
 			padding: 0.75rem 1rem;
 			border-top: 1px solid #929292;
 			width: 100%;
+			box-shadow:
+				rgba(0, 0, 0, 0.16) 0px -1px 4px,
+				rgba(0, 0, 0, 0.23) 0px -1px 4px;
+			z-index: 1;
 
 			span {
 				display: block;
@@ -369,6 +379,19 @@
 			background-color: transparent;
 			border: none;
 			cursor: pointer;
+
+			&:disabled {
+				opacity: 0.5;
+				cursor: default;
+
+				&:hover,
+				&:last-of-type:hover {
+					background: none;
+					.icon-container {
+						transform: scale(1);
+					}
+				}
+			}
 
 			&:hover {
 				background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 80%);
@@ -414,7 +437,7 @@
 	@media (max-width: 1000px) {
 		.carousel-controls {
 			button {
-				opacity: 0;
+				opacity: 0 !important;
 			}
 		}
 	}
