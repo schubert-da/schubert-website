@@ -3,6 +3,7 @@
 	import Navbar from '$lib/components/Navbar/Navbar.svelte';
 	import { navbarHeight } from '$lib/utils/stores';
 	import PaperTexture from '$lib/assets/images/paper-texture.jpeg';
+	import Seo from '$lib/components/SEO/SEO.svelte';
 
 	let { children } = $props();
 
@@ -29,6 +30,8 @@
 		lastScrollValue = scrollValue;
 	}
 </script>
+
+<Seo></Seo>
 
 <svelte:window on:scroll={handleScroll} bind:scrollY={scrollValue} />
 
