@@ -55,6 +55,8 @@
 
 	let screenWidth = $state(1000);
 	let numPages = $derived(screenWidth > 1000 ? 2 : 1);
+
+	let cardContentWidth = $state(300);
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
@@ -65,38 +67,48 @@
 			<h1>Dairy Cold Chain Transition</h1>
 		</div>
 
-		<div class="card-content">
-			{#each pages.slice(currentPage, currentPage + numPages) as page}
-				<div class="page" class:two-pages={numPages === 2}>
-					{#each page.content as content}
-						{#if content.type === 'title'}
-							<div class="text-content">
-								<h2 class="title">{content.text}</h2>
-							</div>
-						{:else if content.type === 'text'}
-							<div class="text-content">
-								{#if content.title}
-									<h2 class="title">{content.title}</h2>
-								{/if}
-
-								<div class="description">
-									{#each content.text as text, index}
-										<p>{text}</p>
-									{/each}
+		<div class="card-content" bind:clientWidth={cardContentWidth}>
+			<div
+				class="pages-track"
+				style="--x-translate: {-(currentPage * cardContentWidth) / numPages}px"
+			>
+				{#each pages.slice() as page}
+					{@const pageWidth = cardContentWidth / numPages}
+					<div class="page" class:two-pages={numPages === 2} style="--page-width: {pageWidth}px">
+						{#each page.content as content}
+							{#if content.type === 'title'}
+								<div class="text-content">
+									<h2 class="title">{content.text}</h2>
 								</div>
-							</div>
-						{:else if content.type === 'image'}
-							<div class="image-content">
-								<img src={content.src} alt={content.alt} />
-							</div>
-						{/if}
-					{/each}
-				</div>
-			{/each}
+							{:else if content.type === 'text'}
+								<div class="text-content">
+									{#if content.title}
+										<h2 class="title">{content.title}</h2>
+									{/if}
 
-			{#if pages.slice(currentPage, currentPage + numPages).length === 1 && numPages === 2}
-				<div class="page" class:two-pages={numPages === 2}></div>
-			{/if}
+									<div class="description">
+										{#each content.text as text, index}
+											<p>{text}</p>
+										{/each}
+									</div>
+								</div>
+							{:else if content.type === 'image'}
+								<div class="image-content">
+									<img src={content.src} alt={content.alt} />
+								</div>
+							{/if}
+						{/each}
+					</div>
+				{/each}
+
+				{#if pages.slice(currentPage, currentPage + numPages).length === 1 && numPages === 2}
+					<div
+						class="page"
+						class:two-pages={numPages === 2}
+						style="--page-width: {cardContentWidth / numPages}px"
+					></div>
+				{/if}
+			</div>
 		</div>
 
 		<div class="card-footer">
@@ -190,13 +202,27 @@
 			display: flex;
 			flex-direction: row;
 			align-items: stretch;
-			justify-content: center;
+			justify-content: flex-start;
 			gap: 0;
 
 			width: 100%;
 			height: 100%;
-			min-height: 80vh;
-			padding: 0 var(--card-padding) 0 var(--card-padding);
+			padding: 0;
+
+			.pages-track {
+				display: flex;
+				flex-direction: row;
+				align-items: stretch;
+				justify-content: flex-start;
+				gap: 0;
+
+				width: 100%;
+				height: 100%;
+				min-height: 80vh;
+				padding: 0;
+				transform: translateX(var(--x-translate));
+				transition: transform 0.5s ease-in-out;
+			}
 
 			.page {
 				position: relative;
@@ -205,9 +231,10 @@
 				justify-content: center;
 				gap: 1.5rem;
 
-				width: 100%;
-				max-width: 500px;
-				padding: 0 var(--card-padding);
+				width: var(--page-width);
+				min-width: var(--page-width);
+				padding: 0 calc(2 * var(--card-padding));
+				margin: 0;
 
 				&.two-pages:nth-of-type(1) {
 					background-image: linear-gradient(
@@ -225,7 +252,7 @@
 					);
 				}
 
-				&.two-pages:last-of-type::before {
+				&.two-pages:not(:first-of-type)::before {
 					position: absolute;
 					left: 0rem;
 					top: 0;
@@ -372,7 +399,7 @@
 			border-radius: 100rem;
 			border: 1px solid #929292;
 			box-shadow: --2px 3px 4px rgba(0, 0, 0, 0.25);
-			transition: transform 0.2s ease-in-out;
+			transition: transform 0.5s ease-in;
 
 			&.icon-container-left {
 				margin-right: auto;
