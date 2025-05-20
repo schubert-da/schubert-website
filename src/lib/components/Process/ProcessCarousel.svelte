@@ -1,15 +1,18 @@
 <script>
-	import { navbarHeight } from '$lib/utils/stores';
+	import { navbarHeight, scrollerParams } from '$lib/utils/stores';
 	import { onMount } from 'svelte';
 	import exampleImage from '$lib/assets/images/works/wdvp-2.png';
 	import { gsap } from 'gsap';
+
+	// $inspect('scrollerParams', $scrollerParams);
 
 	let currentPage = $state(0);
 	let { pages } = $props();
 
 	function handlePageChange(direction) {
 		if (direction === 'next') {
-			currentPage = currentPage + 1 >= pages.length ? pages.length - 1 : currentPage + 1;
+			currentPage =
+				currentPage + 1 > pages.length - numPages ? pages.length - numPages : currentPage + 1;
 		} else if (direction === 'prev') {
 			currentPage = currentPage - 1 < 0 ? 0 : currentPage - 1;
 		}
@@ -32,8 +35,9 @@
 		<div class="card-content" bind:clientWidth={cardContentWidth}>
 			<div
 				class="pages-track"
-				style="--x-translate: {-(Math.min(currentPage, pages.length - 2) * cardContentWidth) /
-					numPages}px"
+				style="--x-translate: {-(
+					Math.min(currentPage, pages.length - numPages) * cardContentWidth
+				) / numPages}px"
 			>
 				{#each pages.slice() as page}
 					{@const pageWidth = cardContentWidth / numPages}
@@ -63,14 +67,6 @@
 						{/each}
 					</div>
 				{/each}
-
-				<!-- {#if pages.slice(currentPage, currentPage + numPages).length === 1 && numPages === 2}
-					<div
-						class="page"
-						class:two-pages={numPages === 2}
-						style="--page-width: {cardContentWidth / numPages}px"
-					></div>
-				{/if} -->
 			</div>
 		</div>
 
@@ -107,7 +103,7 @@
 			class="carousel-button"
 			aria-label="next page"
 			onclick={() => handlePageChange('next')}
-			disabled={currentPage === pages.length - 2}
+			disabled={currentPage === pages.length - numPages}
 		>
 			<div class="icon-container icon-container-right">
 				<svg
@@ -181,8 +177,11 @@
 
 			width: 100%;
 			height: 100%;
-			max-height: 75vh;
 			padding: 0;
+
+			@media (max-width: 1000px) {
+				max-height: 75vh;
+			}
 
 			.pages-track {
 				display: flex;
@@ -407,7 +406,7 @@
 
 	@media (max-width: 500px) {
 		section {
-			height: calc(100vh - var(--navbar-height));
+			height: calc(100vh - 20px);
 
 			.card .card-content {
 				min-height: unset;
