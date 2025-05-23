@@ -26,7 +26,10 @@
 
 <svelte:window bind:innerWidth={screenWidth} />
 
-<section style="--navbar-height: {$navbarHeight}px">
+<section
+	style="--navbar-height: {$navbarHeight}px"
+	class:active-section={$scrollerParams?.index === 1}
+>
 	<div class="card">
 		<div class="card-header">
 			<h1>Dairy Cold Chain Transition</h1>
@@ -132,6 +135,14 @@
 		align-items: center;
 
 		background-color: var(--palette-yellow-muted);
+
+		&.active-section {
+			@media (max-width: 1000px) {
+				.card {
+					transform: scale(1.05);
+				}
+			}
+		}
 	}
 
 	.card {
@@ -150,6 +161,7 @@
 		border: 1px solid #929292;
 		box-shadow: -4px 5px 4px rgba(0, 0, 0, 0.25);
 		border-radius: 20px;
+		transition: all 0.5s ease-in-out;
 
 		.card-header {
 			padding: 1rem 0;
