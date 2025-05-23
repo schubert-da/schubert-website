@@ -1,4 +1,5 @@
 <script>
+	import Footer from '$lib/components/Footer/Footer.svelte';
 	import ProcessSection from '$lib/components/Process/ProcessSection.svelte';
 	import HeroSection from '$lib/components/SectionCards/HomeSection/HeroSection.svelte';
 	import IntroSection from '$lib/components/SectionCards/HomeSection/IntroSection.svelte';
@@ -43,3 +44,5 @@
 		</div>
 	</div>
 </Scroller>
+
+<Footer></Footer>
