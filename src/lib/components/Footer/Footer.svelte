@@ -24,11 +24,23 @@
 				</div>
 
 				<div class="share-button-row">
-					<div class="icon-container"><a href="www.google.com">{@html InstagramIcon}</a></div>
-					<div class="icon-container"><a href="www.google.com">{@html BlueskyIcon}</a></div>
-					<div class="icon-container"><a href="www.google.com">{@html LinkedInIcon}</a></div>
-					<div class="icon-container"><a href="www.google.com">{@html EmailIcon}</a></div>
-					<div class="icon-container"><a href="www.google.com">{@html TwitterIcon}</a></div>
+					<div class="icon-container">
+						<a href="https://www.instagram.com/schu.draws.stuff/">{@html InstagramIcon}</a>
+					</div>
+					<div class="icon-container">
+						<a href="https://bsky.app/profile/schubert-da.bsky.social">{@html BlueskyIcon}</a>
+					</div>
+					<div class="icon-container">
+						<a href="https://www.linkedin.com/in/schubert-de-abreu-47a56037/"
+							>{@html LinkedInIcon}</a
+						>
+					</div>
+					<div class="icon-container">
+						<a href="mailto:schubertdeabreu2@gmail.com">{@html EmailIcon}</a>
+					</div>
+					<div class="icon-container">
+						<a href="https://x.com/schubertda1">{@html TwitterIcon}</a>
+					</div>
 				</div>
 			</div>
 
@@ -38,19 +50,21 @@
 					algorithm has been slowly working away at creating this small village.
 				</div>
 
-				<div class="ban">
-					<span class="label">You've been here for</span>
-					<div class="value-content">
-						<span class="value">20</span>
-						<span class="unit">seconds</span>
+				<div class="ban-list">
+					<div class="ban">
+						<span class="label">You've been here for</span>
+						<div class="value-content">
+							<span class="value">20</span>
+							<span class="unit">seconds</span>
+						</div>
 					</div>
-				</div>
 
-				<div class="ban">
-					<span class="label">In that time, Bob has placed</span>
-					<div class="value-content">
-						<span class="value">105</span>
-						<span class="unit">tiles</span>
+					<div class="ban">
+						<span class="label">In that time, Bob has placed</span>
+						<div class="value-content">
+							<span class="value">105</span>
+							<span class="unit">tiles</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -127,11 +141,36 @@
 
 			.footer-section.game-section {
 				display: flex;
+				gap: 2rem;
+
+				@media (max-width: 600px) {
+					flex-direction: column;
+					gap: 0.5rem;
+
+					div.footer-description {
+						max-width: 60ch;
+					}
+
+					.ban-list {
+						.ban:first-of-type {
+							padding-left: 1rem;
+							border-left: none;
+						}
+
+						.ban:last-of-type {
+							padding-right: 1rem;
+						}
+					}
+				}
 
 				.footer-description {
 					margin-bottom: 1.5rem;
 					max-width: 50%;
 					font-size: var(--font-size-0);
+				}
+
+				.ban-list {
+					display: flex;
 				}
 
 				.ban {
