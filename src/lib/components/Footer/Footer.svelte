@@ -7,6 +7,9 @@
 	import WaveCityGrid from './WaveCityGrid/WaveCityGrid.svelte';
 
 	let screenWidth = $state(1000);
+	let numTilesPlaced = $state(0);
+	let DELAY = 0.5;
+	let timeSpent = $derived(Math.floor((numTilesPlaced * DELAY) / 30) * 0.5);
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
@@ -54,15 +57,15 @@
 					<div class="ban">
 						<span class="label">You've been here for</span>
 						<div class="value-content">
-							<span class="value">20</span>
-							<span class="unit">seconds</span>
+							<span class="value">{timeSpent}</span>
+							<span class="unit">minutes</span>
 						</div>
 					</div>
 
 					<div class="ban">
 						<span class="label">In that time, Bob has placed</span>
 						<div class="value-content">
-							<span class="value">105</span>
+							<span class="value">{numTilesPlaced}</span>
 							<span class="unit">tiles</span>
 						</div>
 					</div>
@@ -71,7 +74,7 @@
 		</div>
 
 		<div class="game-grid-container">
-			<WaveCityGrid></WaveCityGrid>
+			<WaveCityGrid {DELAY} bind:numTilesPlaced></WaveCityGrid>
 		</div>
 	</div>
 </footer>

@@ -9,9 +9,9 @@
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
 
+	let { numTilesPlaced = $bindable(), DELAY = 0 } = $props();
 	const NUM_ROWS = 3;
 	const NUM_COLS = 5;
-	const DELAY = 0.5;
 
 	let gridWidth = $state(500);
 	let tileWidth = $derived(gridWidth ? Math.floor(gridWidth / NUM_COLS) : 100);
@@ -31,7 +31,10 @@
 				opacity: 1,
 				duration: 0.5,
 				ease: 'power1.inOut',
-				delay: DELAY * tile.order
+				delay: DELAY * tile.order,
+				onComplete: () => {
+					numTilesPlaced += 1;
+				}
 			});
 		});
 
@@ -41,65 +44,63 @@
 		const interval = setInterval(
 			async () => {
 				currentRow += 2;
+
 				animateNextTiles(currentRow);
 			},
-			DELAY * (NUM_COLS * 2) * 1000 + DELAY * 1000
+			DELAY * (NUM_COLS * 2) * 1000
 		);
 
 		return () => clearInterval(interval);
 	});
 
 	async function animateNextTiles(currentRow) {
-		const addedDelay = currentRow === 0 ? DELAY * 5 : 0;
-
-		console.log('Animating next tiles for row:', currentRow);
-		const timeline = gsap.timeline({ paused: true });
+		const timeline = gsap.timeline({
+			paused: true,
+			onComplete: () => {
+				timeline.kill();
+			}
+		});
 
 		tiles = await initTiles(tiles, NUM_ROWS, NUM_COLS, 2);
 		tiles = await collapseTiles(tiles, currentRow, NUM_ROWS, NUM_COLS);
 		console.log('Tiles after collapse:', tiles);
 		let currentTiles = await tiles.slice((currentRow + 1) * NUM_COLS, (currentRow + 3) * NUM_COLS);
-		console.log('currentTiles:', currentTiles);
+		console.log(
+			'currentTiles:',
+			currentTiles.slice().sort((a, b) => a.order - b.order)
+		);
 
-		currentTiles
-			.slice()
-			.sort((a, b) => a.order - b.order)
-			.forEach((tile, index) => {
-				const tileElement = tilesList[`${(currentRow + 1) * NUM_COLS + index}`];
-				timeline.to(
-					tileElement,
-					{
-						opacity: 1,
-						duration: 0.5,
-						ease: 'power1.inOut',
-						delay: DELAY
-					},
-					computeDelay(currentRow, tile.order, addedDelay)
-				);
-			});
+		currentTiles.slice().forEach((tile, index) => {
+			const tileElement = tilesList[`${(currentRow + 1) * NUM_COLS + index}`];
+			let effectiveDelay = (tile.order % (2 * NUM_COLS)) * DELAY;
+
+			timeline.to(
+				tileElement,
+				{
+					opacity: 1,
+					duration: 0.5,
+					ease: 'power1.inOut',
+					onComplete: () => {
+						numTilesPlaced += 1;
+					}
+				},
+				currentRow === 0
+					? DELAY * NUM_COLS + effectiveDelay + DELAY * 2
+					: effectiveDelay + DELAY * 2
+			);
+		});
 
 		timeline.to(
 			'.game-grid',
 			{
 				y: `-=${tileWidth * 2}px`,
 				duration: 0.5,
-				ease: 'power1.inOut',
-				delay: DELAY
+				ease: 'power1.inOut'
 			},
 			'+=0.1'
 		);
 
 		timeline.play();
-	}
-
-	function computeDelay(currentRow, order, addedDelay = 0) {
-		if (currentRow === 0 && order === 0) {
-			return `+=${DELAY * 5}`;
-		} else if (order === 0) {
-			return `+=${DELAY}`;
-		} else {
-			return '<';
-		}
 	}
 </script>
 
@@ -138,7 +139,7 @@
 <style lang="scss">
 	.grid-window {
 		position: relative;
-		max-width: 1100px;
+		max-width: 1200px;
 		margin: 4rem auto 0 auto;
 		border: 4px solid #666;
 		border-radius: 6px;
@@ -154,7 +155,7 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 
-		max-width: 1100px;
+		max-width: 1200px;
 
 		.row {
 			display: flex;
