@@ -1,9 +1,4 @@
 <script>
-	import TileBlank from '$lib/assets/images/wave-playground/tile-blank.jpg';
-	import TileDeadend from '$lib/assets/images/wave-playground/tile-deadend.jpg';
-	import TileTJunction from '$lib/assets/images/wave-playground/tile-tjunction.jpg';
-	import TileCurve from '$lib/assets/images/wave-playground/tile-curve.jpg';
-
 	import { TILE_SET } from './tileSet';
 	import { collapseTiles, initTiles } from './WaveFunction';
 	import { onMount } from 'svelte';

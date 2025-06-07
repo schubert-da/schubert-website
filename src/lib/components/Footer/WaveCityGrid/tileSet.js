@@ -1,16 +1,9 @@
-import TileBlank from '$lib/assets/images/wave-playground/tile-blank.jpg';
-import TileCrossroad from '$lib/assets/images/wave-playground/tile-crossroad.jpg';
-import TileStraight from '$lib/assets/images/wave-playground/tile-straight.jpg';
-import TileDeadend from '$lib/assets/images/wave-playground/tile-deadend.jpg';
-import TileTJunction from '$lib/assets/images/wave-playground/tile-tjunction.jpg';
-import TileCurve from '$lib/assets/images/wave-playground/tile-curve.jpg';
-
 export const TILE_SET = [
     // BLANK TILE
     {
         name: 'BLANK',
         image: {
-            paths: ['tile-blank.jpg'],
+            paths: ['tile-blank.webp'],
             rotation: [0, 90, 180, 270]
         },
         top: {
@@ -30,7 +23,7 @@ export const TILE_SET = [
     {
         name: 'CROSS',
         image: {
-            paths: ['tile-crossroad.jpg'],
+            paths: ['tile-crossroad.webp'],
             rotation: [0, 90, 180, 270]
         },
         top: {
@@ -50,7 +43,7 @@ export const TILE_SET = [
     {
         name: 'HORIZONTAL LINE',
         image: {
-            paths: ['tile-straight.jpg'],
+            paths: ['tile-straight.webp'],
             rotation: [0, 180]
         },
         top: {
@@ -70,7 +63,7 @@ export const TILE_SET = [
     {
         name: 'VERTICAL LINE',
         image: {
-            paths: ['tile-straight.jpg'],
+            paths: ['tile-straight.webp'],
             rotation: [90, 270]
         },
         top: {
@@ -90,7 +83,7 @@ export const TILE_SET = [
     {
         name: 'LEFT T',
         image: {
-            paths: ['tile-tjunction.jpg'],
+            paths: ['tile-tjunction.webp'],
             rotation: [0]
         },
         top: {
@@ -110,7 +103,7 @@ export const TILE_SET = [
     {
         name: 'RIGHT T',
         image: {
-            paths: ['tile-tjunction.jpg'],
+            paths: ['tile-tjunction.webp'],
             rotation: [180]
         },
         top: {
@@ -130,7 +123,7 @@ export const TILE_SET = [
     {
         name: 'TOP T',
         image: {
-            paths: ['tile-tjunction.jpg'],
+            paths: ['tile-tjunction.webp'],
             rotation: [90]
         },
         top: {
@@ -150,7 +143,7 @@ export const TILE_SET = [
     {
         name: 'BOTTOM T',
         image: {
-            paths: ['tile-tjunction.jpg'],
+            paths: ['tile-tjunction.webp'],
             rotation: [270]
         },
         top: {
@@ -170,7 +163,7 @@ export const TILE_SET = [
     {
         name: 'TOP RIGHT L',
         image: {
-            paths: ['tile-curve.jpg'],
+            paths: ['tile-curve.webp'],
             rotation: [180]
         },
         top: {
@@ -190,7 +183,7 @@ export const TILE_SET = [
     {
         name: 'BOTTOM LEFT L',
         image: {
-            paths: ['tile-curve.jpg'],
+            paths: ['tile-curve.webp'],
             rotation: [0]
         },
         top: {
@@ -210,7 +203,7 @@ export const TILE_SET = [
     {
         name: 'TOP LEFT L',
         image: {
-            paths: ['tile-curve.jpg'],
+            paths: ['tile-curve.webp'],
             rotation: [90]
         },
         top: {
@@ -230,7 +223,7 @@ export const TILE_SET = [
     {
         name: 'BOTTOM RIGHT L',
         image: {
-            paths: ['tile-curve.jpg'],
+            paths: ['tile-curve.webp'],
             rotation: [270]
         },
         top: {
@@ -250,7 +243,7 @@ export const TILE_SET = [
     {
         name: 'TOP DEAD END',
         image: {
-            paths: ['tile-deadend.jpg'],
+            paths: ['tile-deadend.webp'],
             rotation: [270]
         },
         top: {
@@ -270,7 +263,7 @@ export const TILE_SET = [
     {
         name: 'RIGHT DEAD END',
         image: {
-            paths: ['tile-deadend.jpg'],
+            paths: ['tile-deadend.webp'],
             rotation: [180]
         },
         top: {
@@ -290,7 +283,7 @@ export const TILE_SET = [
     {
         name: 'BOTTOM DEAD END',
         image: {
-            paths: ['tile-deadend.jpg'],
+            paths: ['tile-deadend.webp'],
             rotation: [90]
         },
         top: {
@@ -310,7 +303,7 @@ export const TILE_SET = [
     {
         name: 'LEFT DEAD END',
         image: {
-            paths: ['tile-deadend.jpg'],
+            paths: ['tile-deadend.webp'],
             rotation: [0]
         },
         top: {
