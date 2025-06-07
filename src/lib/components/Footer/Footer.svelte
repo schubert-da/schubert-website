@@ -8,7 +8,7 @@
 
 	let screenWidth = $state(1000);
 	let numTilesPlaced = $state(0);
-	let DELAY = 0.5;
+	let DELAY = 2.5;
 	let timeSpent = $derived(Math.floor((numTilesPlaced * DELAY) / 30) * 0.5);
 </script>
 

@@ -84,9 +84,7 @@
 						numTilesPlaced += 1;
 					}
 				},
-				currentRow === 0
-					? DELAY * NUM_COLS + effectiveDelay + DELAY * 2
-					: effectiveDelay + DELAY * 2
+				currentRow === 0 ? DELAY * NUM_COLS + effectiveDelay + 1 : effectiveDelay + 1
 			);
 		});
 
