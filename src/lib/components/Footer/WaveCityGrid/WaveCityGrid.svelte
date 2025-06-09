@@ -58,12 +58,7 @@
 
 		tiles = await initTiles(tiles, NUM_ROWS, NUM_COLS, 2);
 		tiles = await collapseTiles(tiles, currentRow, NUM_ROWS, NUM_COLS);
-		console.log('Tiles after collapse:', tiles);
 		let currentTiles = await tiles.slice((currentRow + 1) * NUM_COLS, (currentRow + 3) * NUM_COLS);
-		console.log(
-			'currentTiles:',
-			currentTiles.slice().sort((a, b) => a.order - b.order)
-		);
 
 		currentTiles.slice().forEach((tile, index) => {
 			const tileElement = tilesList[`${(currentRow + 1) * NUM_COLS + index}`];
