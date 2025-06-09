@@ -8,10 +8,13 @@
 	import { scrollerParams, sectionHeights } from '$lib/utils/stores';
 	import Scroller from '@sveltejs/svelte-scroller';
 
-	let index, offset, progress;
-	$: if (index || offset || progress) {
+	let index = $state(null);
+	let offset = $state(null);
+	let progress = $state(null);
+
+	$effect(() => {
 		scrollerParams.set({ index, offset, progress });
-	}
+	});
 </script>
 
 <Scroller
