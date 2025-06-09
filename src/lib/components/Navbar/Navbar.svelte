@@ -1,85 +1,28 @@
 <script>
-	import { navbarHeight, sectionHeights } from '$lib/utils/stores';
+	import { navbarHeight } from '$lib/utils/stores';
+	import { navSectionsConfig } from '$lib/utils/stores';
 
 	let { showNav } = $props();
 
-	let navSections = $state([]);
+	let navSections = $derived.by(() => {
+		let currentNavSections = $navSectionsConfig.slice();
+		const sections = currentNavSections.map((section) => section.name);
 
-	$effect(() => {
-		let sections = Object.keys($sectionHeights);
-		let totalHeight = sections.reduce((acc, section) => acc + $sectionHeights[section], 0);
+		sections.forEach((section) => {
+			let currentSection = currentNavSections.find((s) => s.name === section);
+			let sectionHeight = currentSection.sections.reduce((acc, s) => acc + s.width, 0);
+			currentSection.width = sectionHeight;
+		});
 
-		navSections = [
-			{
-				name: 'Home',
-				width: ($sectionHeights.home / totalHeight) * 100,
-				color: '#333333',
-				sections: [
-					{
-						name: 'hero',
-						href: '/'
-					},
-					{
-						name: 'about',
-						href: '/'
-					}
-				]
-			},
-			{
-				name: 'Works',
-				width: ($sectionHeights.works / totalHeight) * 100,
-				color: 'var(--palette-green-muted)',
-				sections: [
-					{
-						name: 'project 1',
-						href: '/'
-					},
-					{
-						name: 'project 2',
-						href: '/'
-					},
-					{
-						name: 'project 2',
-						href: '/'
-					},
-					{
-						name: 'project 2',
-						href: '/'
-					},
-					{
-						name: 'project 3',
-						href: '/'
-					}
-				]
-			},
-			{
-				name: 'Contact',
-				width: ($sectionHeights.contact / totalHeight) * 100,
-				color: 'var(--color-background)',
-				sections: [
-					{
-						name: 'contact',
-						href: '/'
-					}
-				]
-			},
-			{
-				name: 'Other',
-				width: ($sectionHeights.other / totalHeight) * 100,
-				color: 'var(--palette-yellow-muted)',
-				sections: [
-					{
-						name: 'writing',
-						href: '/'
-					},
-					{
-						name: 'devlogs',
-						href: '/'
-					}
-				]
-			}
-		];
+		return currentNavSections;
 	});
+
+	let totalWidth = $derived.by(() => {
+		return navSections?.reduce((acc, section) => acc + section.width, 0);
+	});
+
+	$inspect('navSections', navSections);
+	$inspect('totalWidth', totalWidth);
 </script>
 
 <nav>
@@ -87,13 +30,14 @@
 		<div class="section-list" bind:clientHeight={$navbarHeight} class:show-nav={showNav}>
 			{#each navSections as category, index}
 				{#if category?.width > 0}
+					{@const categoryWidth = (category.width * 100) / totalWidth}
 					<div
 						class="section-wells"
 						class:light-bg={category.color === 'var(--color-background)'}
-						style="--category-width: {category.width}%;"
+						style="--category-width: {categoryWidth}%;"
 					>
 						<ul
-							style="--after-content: '{Math.round(category.width)}% {index === 0
+							style="--after-content: '{Math.round(categoryWidth)}% {index === 0
 								? 'page content'
 								: ''}';"
 						>

@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import { navSectionsConfig as navbarSections } from "$lib/components/Navbar/navSections";
 
 export const navbarHeight = writable(90);
 export const scrollerParams = writable({});
@@ -9,3 +10,5 @@ export const sectionHeights = writable({
     contact: 0,
     other: 0,
 });
+
+export const navSectionsConfig = writable(navbarSections);
