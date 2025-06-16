@@ -1,7 +1,7 @@
 <script>
 	import { navbarHeight, scrollerParams } from '$lib/utils/stores';
 	import { onMount } from 'svelte';
-	import exampleImage from '$lib/assets/images/works/wdvp-2.png';
+	import exampleImage from '$lib/assets/images/works/wdvp-2.webp';
 	import { gsap } from 'gsap';
 
 	// $inspect('scrollerParams', $scrollerParams);

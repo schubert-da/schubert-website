@@ -1,29 +1,29 @@
 
 
-import WorldDatavizWorkImage1 from '$lib/assets/images/works/wdvp-1.png';
-import WorldDatavizWorkImage2 from '$lib/assets/images/works/wdvp-2.png';
-import WorldDatavizWorkImage3 from '$lib/assets/images/works/wdvp-3.png';
-import WorldDatavizWorkImage4 from '$lib/assets/images/works/wdvp-4.png';
+import WorldDatavizWorkImage1 from '$lib/assets/images/works/wdvp-1.webp';
+import WorldDatavizWorkImage2 from '$lib/assets/images/works/wdvp-2.webp';
+import WorldDatavizWorkImage3 from '$lib/assets/images/works/wdvp-3.webp';
+import WorldDatavizWorkImage4 from '$lib/assets/images/works/wdvp-4.webp';
 
-import ISNImage1 from '$lib/assets/images/works/isn-1.png';
-import ISNImage2 from '$lib/assets/images/works/isn-2.png';
-import ISNImage3 from '$lib/assets/images/works/isn-3.png';
-import ISNImage4 from '$lib/assets/images/works/isn-4.png';
+import ISNImage1 from '$lib/assets/images/works/isn-1.webp';
+import ISNImage2 from '$lib/assets/images/works/isn-2.webp';
+import ISNImage3 from '$lib/assets/images/works/isn-3.webp';
+import ISNImage4 from '$lib/assets/images/works/isn-4.webp';
 
-import BehanBoxImage1 from '$lib/assets/images/works/behanbox-1.png';
-import BehanBoxImage2 from '$lib/assets/images/works/behanbox-2.png';
-import BehanBoxImage3 from '$lib/assets/images/works/behanbox-3.png';
-import BehanBoxImage4 from '$lib/assets/images/works/behanbox-4.png';
+import BehanBoxImage1 from '$lib/assets/images/works/behanbox-1.webp';
+import BehanBoxImage2 from '$lib/assets/images/works/behanbox-2.webp';
+import BehanBoxImage3 from '$lib/assets/images/works/behanbox-3.webp';
+import BehanBoxImage4 from '$lib/assets/images/works/behanbox-4.webp';
 
-import WWFMilkStoryImage1 from '$lib/assets/images/works/wwfmilk-1.png';
-import WWFMilkStoryImage2 from '$lib/assets/images/works/wwfmilk-2.png';
-import WWFMilkStoryImage3 from '$lib/assets/images/works/wwfmilk-3.png';
-import WWFMilkStoryImage4 from '$lib/assets/images/works/wwfmilk-4.png';
+import WWFMilkStoryImage1 from '$lib/assets/images/works/wwfmilk-1.webp';
+import WWFMilkStoryImage2 from '$lib/assets/images/works/wwfmilk-2.webp';
+import WWFMilkStoryImage3 from '$lib/assets/images/works/wwfmilk-3.webp';
+import WWFMilkStoryImage4 from '$lib/assets/images/works/wwfmilk-4.webp';
 
-import WWFArkavathiImage1 from '$lib/assets/images/works/wwfarkavathi-1.png';
-import WWFArkavathiImage2 from '$lib/assets/images/works/wwfarkavathi-2.png';
-import WWFArkavathiImage3 from '$lib/assets/images/works/wwfarkavathi-3.png';
-import WWFArkavathiImage4 from '$lib/assets/images/works/wwfarkavathi-4.png';
+import WWFArkavathiImage1 from '$lib/assets/images/works/wwfarkavathi-1.webp';
+import WWFArkavathiImage2 from '$lib/assets/images/works/wwfarkavathi-2.webp';
+import WWFArkavathiImage3 from '$lib/assets/images/works/wwfarkavathi-3.webp';
+import WWFArkavathiImage4 from '$lib/assets/images/works/wwfarkavathi-4.webp';
 
 export const worksData = [
     {

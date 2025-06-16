@@ -1,4 +1,4 @@
-import exampleImage from '$lib/assets/images/works/wdvp-2.png';
+import exampleImage from '$lib/assets/images/works/wdvp-2.webp';
 
 export const dairyColdChain = [
     {
