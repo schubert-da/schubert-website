@@ -5,8 +5,9 @@
 	import IntroSection from '$lib/components/SectionCards/HomeSection/IntroSection.svelte';
 	import WorkSection from '$lib/components/SectionCards/WorkSection/WorkSection.svelte';
 	import FeaturedWork from '$lib/components/Works/FeaturedWork.svelte';
-	import { scrollerParams, sectionHeights } from '$lib/utils/stores';
+	import { scrollerParams, navSectionsConfig } from '$lib/utils/stores';
 	import Scroller from '@sveltejs/svelte-scroller';
+	import { onMount } from 'svelte';
 
 	let index = $state(null);
 	let offset = $state(null);
@@ -14,6 +15,43 @@
 
 	$effect(() => {
 		scrollerParams.set({ index, offset, progress });
+	});
+
+	let heroSectionHeight = $state(0);
+	let processSectionHeight = $state(0);
+	let worksSectionHeight = $state(0);
+
+	onMount(() => {
+		let currentNavSections = $navSectionsConfig.slice();
+
+		let homeSection = currentNavSections.find((section) => section.name === 'Home');
+		homeSection.sections = [
+			{
+				name: 'intro',
+				href: '#intro',
+				width: heroSectionHeight,
+				color: 'var(--color-background)'
+			},
+			{
+				name: 'process',
+				href: '#process',
+				width: processSectionHeight,
+				color: 'var(--color-background)'
+			}
+		];
+
+		let worksSection = currentNavSections.find((section) => section.name === 'Works');
+		worksSection.sections = [
+			{
+				name: 'featured',
+				href: '#featured',
+				width: worksSectionHeight,
+				color: 'var(--color-background)'
+			}
+		];
+		console.log('currentNavSections', currentNavSections);
+
+		navSectionsConfig.set(currentNavSections);
 	});
 </script>
 
@@ -29,19 +67,25 @@
 
 	<div slot="foreground">
 		<div
+			id="hero-section"
 			class="foreground-section intro-section-container"
-			bind:clientHeight={$sectionHeights.home}
+			bind:clientHeight={heroSectionHeight}
 		>
 			<HeroSection></HeroSection>
 		</div>
 
-		<div class="foreground-section process-section-container">
+		<div
+			id="process-section"
+			class="foreground-section process-section-container"
+			bind:clientHeight={processSectionHeight}
+		>
 			<ProcessSection></ProcessSection>
 		</div>
 
 		<div
+			id="work-section"
 			class="foreground-section works-section-container"
-			bind:clientHeight={$sectionHeights.works}
+			bind:clientHeight={worksSectionHeight}
 		>
 			<WorkSection></WorkSection>
 		</div>

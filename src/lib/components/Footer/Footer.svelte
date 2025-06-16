@@ -5,18 +5,42 @@
 	import EmailIcon from '$lib/assets/images/icons/email.svg?raw';
 	import BlueskyIcon from '$lib/assets/images/icons/bluesky.svg?raw';
 	import WaveCityGrid from './WaveCityGrid/WaveCityGrid.svelte';
-	import { sectionHeights } from '$lib/utils/stores';
+	import { onMount } from 'svelte';
+	import { navSectionsConfig } from '$lib/utils/stores';
 
 	let screenWidth = $state(1000);
 	let numTilesPlaced = $state(0);
 	const TIME_SCALE = 1;
 	let DELAY = 2.5 / TIME_SCALE;
 	let timeSpent = $derived(Math.floor((numTilesPlaced * DELAY) / (30 / TIME_SCALE)) * 0.5);
+
+	let footerHeight = $state(0);
+
+	onMount(() => {
+		let timeout = setTimeout(() => {
+			let currentNavSections = $navSectionsConfig.slice();
+			let worksSection = currentNavSections.find((section) => section.name === 'Contact');
+			worksSection.sections = [
+				{
+					name: 'footer',
+					href: '#footer',
+					width: footerHeight,
+					color: 'var(--color-background)'
+				}
+			];
+
+			navSectionsConfig.set(currentNavSections);
+		}, 100);
+
+		return () => {
+			clearTimeout(timeout);
+		};
+	});
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
 
-<footer bind:clientHeight={$sectionHeights.contact}>
+<footer bind:clientHeight={footerHeight}>
 	<div class="card">
 		<div class="text-content">
 			<div class="footer-section">

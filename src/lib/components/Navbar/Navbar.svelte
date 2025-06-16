@@ -107,6 +107,8 @@
 			width: var(--category-width);
 			height: 100%;
 
+			transition: all 0.4s ease-in;
+
 			&:not(:last-child) {
 				border-right: 2px solid #929292;
 			}
