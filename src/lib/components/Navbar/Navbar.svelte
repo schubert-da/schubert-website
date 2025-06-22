@@ -1,4 +1,5 @@
 <script>
+	import NavbarDropdown from './NavbarDropdown.svelte';
 	import { navbarHeight } from '$lib/utils/stores';
 	import { navSectionsConfig } from '$lib/utils/stores';
 
@@ -21,7 +22,6 @@
 		return navSections?.reduce((acc, section) => acc + section.width, 0);
 	});
 
-	$inspect('navSections', navSections);
 	$inspect('totalWidth', totalWidth);
 </script>
 
@@ -58,6 +58,9 @@
 					</div>
 				{/if}
 			{/each}
+			<div class="section-wells" style="height: unset;">
+				<NavbarDropdown {navSections} {totalWidth}></NavbarDropdown>
+			</div>
 		</div>
 	{/if}
 </nav>
@@ -77,8 +80,7 @@
 		.section-list {
 			display: flex;
 			flex-direction: row;
-			align-items: center;
-			overflow: hidden;
+			align-items: stretch;
 
 			width: 100%;
 			max-width: max(75vw, 1200px);
@@ -98,6 +100,7 @@
 		}
 
 		.section-wells {
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
@@ -181,6 +184,13 @@
 				&:hover {
 					opacity: 70%;
 				}
+			}
+		}
+
+		@media (max-width: 1000px) {
+			.section-wells ul a h3,
+			.section-wells.light-bg ul a h3 {
+				color: transparent;
 			}
 		}
 	}

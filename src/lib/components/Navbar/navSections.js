@@ -1,6 +1,7 @@
 export const navSectionsConfig = [
     {
         name: 'Home',
+        description: 'A bit about myself and the things I like to create on a daily basis.',
         color: '#333333',
         sections: [
             {
@@ -17,6 +18,7 @@ export const navSectionsConfig = [
     },
     {
         name: 'Works',
+        description: 'A showcase of some of the work I’ve done, both professionally and as personal projects.',
         color: 'var(--palette-green-muted)',
         sections: [
             {
@@ -48,6 +50,7 @@ export const navSectionsConfig = [
     },
     {
         name: 'Contact',
+        description: 'I’ve making an effort to build more in public recently.<br><br> So if you wanna check out what I\'m tinkering with feel free to head over to my socials.',
         color: 'var(--color-background)',
         sections: [
             {
