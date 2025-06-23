@@ -48,7 +48,6 @@
 				color: 'var(--color-background)'
 			}
 		];
-		console.log('currentNavSections', currentNavSections);
 
 		navSectionsConfig.set(currentNavSections);
 	});
