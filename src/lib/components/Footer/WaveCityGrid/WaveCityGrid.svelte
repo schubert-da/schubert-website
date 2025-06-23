@@ -16,6 +16,8 @@
 
 	let tilesList = $state({});
 
+	$inspect('tilesList', tilesList);
+
 	onMount(async () => {
 		tiles = await initTiles(tiles, NUM_ROWS, NUM_COLS, 1);
 		tiles = await collapseTiles(tiles, currentRow, NUM_ROWS, NUM_COLS);
@@ -107,16 +109,14 @@
 						class:right={tile?.connections?.right}
 						class:top={tile?.connections?.top}
 						class:bottom={tile?.connections?.bottom}
-						bind:this={tilesList[rowIndex * NUM_COLS + colIndex]}
 					>
-						{#if tile?.image}
-							<img
-								style:--tile-rotation="{tile?.image?.rotation}deg"
-								class="tile-image"
-								src="/tiles/{tile?.image?.paths}"
-								alt="tile"
-							/>
-						{/if}
+						<img
+							bind:this={tilesList[rowIndex * NUM_COLS + colIndex]}
+							style:--tile-rotation="{tile?.image?.rotation}deg"
+							class="tile-image"
+							src="/tiles/{tile?.image?.paths}"
+							alt="tile"
+						/>
 					</div>
 				{/each}
 			</div>
@@ -153,8 +153,8 @@
 		.tile {
 			width: var(--tile-width);
 			height: var(--tile-width);
-			border: 1px solid #666;
-			opacity: 0;
+			border: 1px solid #aaa;
+			opacity: 1;
 
 			img {
 				width: 100%;
@@ -162,7 +162,7 @@
 				object-fit: cover;
 
 				transform: rotate(var(--tile-rotation));
-				opacity: 1;
+				opacity: 0;
 			}
 		}
 	}
