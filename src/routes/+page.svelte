@@ -43,7 +43,7 @@
 		worksSection.sections = [
 			{
 				name: 'featured',
-				href: '#featured',
+				href: '#works',
 				width: worksSectionHeight,
 				color: 'var(--color-background)'
 			}
@@ -66,7 +66,7 @@
 
 	<div slot="foreground">
 		<div
-			id="hero-section"
+			id="intro"
 			class="foreground-section intro-section-container"
 			bind:clientHeight={heroSectionHeight}
 		>
@@ -74,7 +74,7 @@
 		</div>
 
 		<div
-			id="process-section"
+			id="process"
 			class="foreground-section process-section-container"
 			bind:clientHeight={processSectionHeight}
 		>
@@ -82,7 +82,7 @@
 		</div>
 
 		<div
-			id="work-section"
+			id="works"
 			class="foreground-section works-section-container"
 			bind:clientHeight={worksSectionHeight}
 		>

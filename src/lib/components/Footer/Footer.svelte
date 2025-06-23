@@ -40,7 +40,7 @@
 
 <svelte:window bind:innerWidth={screenWidth} />
 
-<footer bind:clientHeight={footerHeight}>
+<footer id="footer" bind:clientHeight={footerHeight}>
 	<div class="card">
 		<div class="text-content">
 			<div class="footer-section">

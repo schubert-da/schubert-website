@@ -7,12 +7,12 @@ export const navSectionsConfig = [
             {
                 name: 'hero',
                 width: 10,
-                href: '/'
+                href: '/#intro'
             },
             {
                 name: 'writing',
                 width: 10,
-                href: '/'
+                href: '/#process'
             }
         ]
     },
@@ -24,27 +24,27 @@ export const navSectionsConfig = [
             {
                 name: 'project 1',
                 width: 10,
-                href: '/'
+                href: '/#works'
             },
             {
                 name: 'project 2',
                 width: 10,
-                href: '/'
+                href: '/#works'
             },
             {
                 name: 'project 2',
                 width: 10,
-                href: '/'
+                href: '/#works'
             },
             {
                 name: 'project 2',
                 width: 10,
-                href: '/'
+                href: '/#works'
             },
             {
                 name: 'project 3',
                 width: 10,
-                href: '/'
+                href: '/#works'
             }
         ]
     },
@@ -56,7 +56,7 @@ export const navSectionsConfig = [
             {
                 name: 'contact',
                 width: 10,
-                href: '/'
+                href: '/#footer'
             }
         ]
     }
