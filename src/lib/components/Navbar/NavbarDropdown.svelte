@@ -10,6 +10,12 @@
 	function handleClickOutside(event) {
 		expanded = false;
 	}
+
+	function handleNavigation() {
+		setTimeout(() => {
+			expanded = false;
+		}, 300);
+	}
 </script>
 
 <button
@@ -33,7 +39,7 @@
 
 		{#each navSections as section}
 			{@const widthPercentage = (section.width * 100) / totalWidth}
-			<a href={section?.sections[0]?.href} aria-label={section.name}>
+			<a href={section?.sections[0]?.href} aria-label={section.name} onclick={handleNavigation}>
 				<div class="section-content">
 					<div
 						class="section-chart"
@@ -91,9 +97,8 @@
 		}
 
 		@media (max-width: 600px) {
-			// max-width: 60px;
-			// height: 100%;
-			// max-height: unset;
+			max-width: 50px;
+			padding: 0.5rem;
 		}
 	}
 
@@ -166,6 +171,10 @@
 
 			&:not(:last-of-type) {
 				border-bottom: 1px dashed #4f4f4f;
+			}
+
+			&:hover {
+				background-color: #d0d7d4;
 			}
 		}
 
