@@ -4,6 +4,7 @@
 	import { navSectionsConfig } from '$lib/utils/stores';
 
 	let { showNav } = $props();
+	let screenWidth = $state(0);
 
 	let navSections = $derived.by(() => {
 		let currentNavSections = $navSectionsConfig.slice();
@@ -25,6 +26,8 @@
 	$inspect('totalWidth', totalWidth);
 </script>
 
+<svelte:window bind:innerWidth={screenWidth} />
+
 <nav>
 	{#if navSections}
 		<div class="section-list" bind:clientHeight={$navbarHeight} class:show-nav={showNav}>
@@ -36,6 +39,14 @@
 						class:light-bg={category.color === 'var(--color-background)'}
 						style="--category-width: {categoryWidth}%;"
 					>
+						<div class="section-mobile-title">
+							<h3>
+								{category.name}
+							</h3>
+							<!-- <span>
+								{Math.round(categoryWidth)}% {index === 0 ? 'page content' : ''}
+							</span> -->
+						</div>
 						<ul
 							style="--after-content: '{Math.round(categoryWidth)}% {index === 0
 								? 'page content'
@@ -49,7 +60,9 @@
 										style="--category-color: {category.color}"
 									>
 										{#if index == 0}
-											<h3 class="section-title">{category.name}</h3>
+											<h3 class="section-title">
+												{screenWidth > 1000 ? category.name : Math.round(categoryWidth) + '%'}
+											</h3>
 										{/if}
 									</a>
 								</li>
@@ -104,11 +117,11 @@
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
+			justify-content: space-between;
 			gap: 0.2rem;
 
 			padding: 0.375rem;
 			width: var(--category-width);
-			height: 100%;
 
 			transition: all 0.4s ease-in;
 
@@ -123,6 +136,33 @@
 
 				ul a h3 {
 					color: #222;
+				}
+			}
+
+			.section-mobile-title {
+				display: none;
+				flex-direction: row;
+				align-items: flex-start;
+				justify-content: space-between;
+				gap: 1rem;
+
+				width: 100%;
+
+				h3 {
+					font-family: var(--font-body);
+					text-transform: uppercase;
+					color: var(--color-text);
+					font-weight: 500;
+					font-size: 1.125rem;
+
+					max-width: 100%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				span {
+					font-size: 1rem;
+					text-align: right;
 				}
 			}
 
@@ -188,21 +228,32 @@
 		}
 
 		@media (max-width: 1000px) {
-			.section-wells ul {
-				gap: 1px;
-
-				a {
-					box-shadow: none;
+			.section-wells {
+				.section-mobile-title {
+					display: flex;
 				}
 
-				&::after {
-					display: none;
+				ul {
+					gap: 1px;
+
+					a {
+						padding: 6px 4px;
+						box-shadow: none;
+
+						h3 {
+							font-size: 1rem;
+						}
+					}
+
+					&::after {
+						display: none;
+					}
 				}
 			}
 
 			.section-wells ul a h3,
 			.section-wells.light-bg ul a h3 {
-				display: none;
+				// display: none;
 			}
 		}
 	}
