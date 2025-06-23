@@ -188,9 +188,21 @@
 		}
 
 		@media (max-width: 1000px) {
+			.section-wells ul {
+				gap: 1px;
+
+				a {
+					box-shadow: none;
+				}
+
+				&::after {
+					display: none;
+				}
+			}
+
 			.section-wells ul a h3,
 			.section-wells.light-bg ul a h3 {
-				color: transparent;
+				display: none;
 			}
 		}
 	}

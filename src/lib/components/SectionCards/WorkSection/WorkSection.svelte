@@ -25,7 +25,7 @@
 
 		width: 100%;
 		height: 100%;
-		padding: var(--section-padding);
+		padding: var(--page-padding);
 		background-color: var(--palette-yellow-muted);
 	}
 

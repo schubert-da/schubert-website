@@ -102,7 +102,7 @@
 		display: flex;
 		flex-direction: column;
 		top: calc(100% + 10px);
-		right: 6px;
+		right: -4px;
 		transform: translateY(-2%);
 		opacity: 0;
 		transition:
@@ -110,16 +110,17 @@
 			opacity 0.1s ease-in-out;
 
 		width: 100%;
-		min-width: 340px;
+		min-width: 320px;
 		max-height: 90dvh;
 		border: 1px solid #929292;
 		background-color: var(--color-background);
 		border-radius: 8px;
 
 		box-shadow: -1px 4px 6px rgba(0, 0, 0, 0.45);
-		overflow: hidden;
+		overflow: auto;
 
 		@media (min-width: 600px) {
+			right: 6px;
 			min-width: 500px;
 		}
 
@@ -137,14 +138,14 @@
 
 			h3 {
 				font-family: var(--font-body);
-				font-size: clamp(1.6rem, 1rem + 1.6vw, 2rem);
-				font-weight: 700;
+				font-size: clamp(1.5rem, 1rem + 1.6vw, 2rem);
+				font-weight: 600;
 				line-height: 1.1;
 				text-transform: uppercase;
 			}
 
 			p {
-				font-size: clamp(1rem, 0.7rem + 0.8vw, 1.2rem);
+				font-size: clamp(0.8rem, 0.7rem + 0.8vw, 1.2rem);
 				color: #4f4f4f;
 			}
 
@@ -226,19 +227,37 @@
 				h3 {
 					font-family: var(--font-body);
 					font-size: 1.5rem;
-					font-weight: 700;
+					font-weight: 600;
 					line-height: 1.1;
 					text-transform: uppercase;
 					text-align: left;
+					text-decoration: underline;
 				}
 
 				p {
-					font-size: 1rem;
+					font-size: clamp(0.8rem, 0.7rem + 0.8vw, 1rem);
 					text-align: left;
 					color: #4f4f4f;
 				}
+			}
+		}
 
-				@media (max-width: 600px) {
+		@media (max-width: 600px) {
+			.section-content {
+				padding: 1.25rem var(--page-padding) 1rem var(--page-padding);
+
+				.section-chart {
+					min-width: 110px;
+
+					.section-area {
+						padding: 0.45rem 0.3rem;
+						span {
+							font-size: 1rem;
+						}
+					}
+				}
+
+				.text-content {
 					h3 {
 						font-weight: 500;
 					}
