@@ -9,7 +9,7 @@
 	const NUM_COLS = 5;
 
 	let gridWidth = $state(500);
-	let tileWidth = $derived(gridWidth ? Math.floor(gridWidth / NUM_COLS) : 100);
+	let tileWidth = $derived(gridWidth ? gridWidth / NUM_COLS : 100);
 
 	let tiles = $state([]);
 	let currentRow = 0;

@@ -22,8 +22,6 @@
 	let totalWidth = $derived.by(() => {
 		return navSections?.reduce((acc, section) => acc + section.width, 0);
 	});
-
-	$inspect('totalWidth', totalWidth);
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
