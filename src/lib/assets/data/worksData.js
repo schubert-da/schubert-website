@@ -27,6 +27,24 @@ import WWFArkavathiImage4 from '$lib/assets/images/works/wwfarkavathi-4.webp';
 
 export const worksData = [
     {
+        title: 'WWF Milk Story',
+        client: 'World Wildlife Fund India',
+        projectType: 'Interactive Story',
+        blocks: [
+            { type: 'image', src: WWFMilkStoryImage2, alt: 'temp alt text', cols: 1 },
+            {
+                type: 'text',
+                title: 'Dairy Cold Chain Transition',
+                description: 'An interactive story on the pivotal role of technology in dairy delivery chain in India',
+                link: 'https://csp.wwfindia.org/dairy-cold-chain-transition/',
+                cols: 2
+            },
+            { type: 'image', src: WWFMilkStoryImage3, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage1, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage4, alt: 'temp alt text', cols: 1 },
+        ]
+    },
+    {
         title: 'One Step Ahead',
         client: 'Personal project',
         projectType: 'Scrollytelling narrative',
@@ -38,7 +56,7 @@ export const worksData = [
                 type: 'text',
                 title: 'One Step Ahead',
                 description: 'A scrollytelling piece on the shortcomings of the efforts to achieve the UN SDG targets',
-                link: 'https://www.google.com',
+                link: 'https://schubert-da.github.io/dvs-world-summit/',
                 cols: 2
             },
             { type: 'image', src: WorldDatavizWorkImage4, alt: 'temp alt text', cols: 1 },
@@ -81,24 +99,6 @@ export const worksData = [
         ]
     },
     {
-        title: 'WWF Milk Story',
-        client: 'World Wildlife Fund India',
-        projectType: 'Interactive Story',
-        blocks: [
-            { type: 'image', src: WWFMilkStoryImage2, alt: 'temp alt text', cols: 1 },
-            {
-                type: 'text',
-                title: 'Dairy Cold Chain Transition',
-                description: 'An interactive story on the pivotal role of technology in dairy delivery chain in India',
-                link: 'https://myfirstvote.behanbox.com/',
-                cols: 2
-            },
-            { type: 'image', src: WWFMilkStoryImage3, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WWFMilkStoryImage1, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WWFMilkStoryImage4, alt: 'temp alt text', cols: 1 },
-        ]
-    },
-    {
         title: 'WWF Arkavathi',
         client: 'World Wildlife Fund India',
         projectType: 'Interactive Story',
@@ -110,7 +110,7 @@ export const worksData = [
                 type: 'text',
                 title: 'Reviving Arkavathi',
                 description: 'An interactive story on the restoration of the Arkavathi river basin in Karnataka',
-                link: 'https://myfirstvote.behanbox.com/',
+                link: 'https://csp.wwfindia.org/reviving-the-arkavathi-river/',
                 cols: 2
             },
             { type: 'image', src: WWFArkavathiImage2, alt: 'temp alt text', cols: 1 },
