@@ -16,8 +16,6 @@
 
 	let tilesList = $state({});
 
-	$inspect('tilesList', tilesList);
-
 	onMount(async () => {
 		tiles = await initTiles(tiles, NUM_ROWS, NUM_COLS, 1);
 		tiles = await collapseTiles(tiles, currentRow, NUM_ROWS, NUM_COLS);

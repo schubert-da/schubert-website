@@ -94,6 +94,10 @@ h6 {
     margin: 0;
 }
 
+strong {
+    font-weight: 600;
+}
+
 svg {
     display: block;
     width: 100%;

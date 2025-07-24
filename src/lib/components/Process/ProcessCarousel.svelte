@@ -42,7 +42,7 @@
 					Math.min(currentPage, pages.length - numPages) * cardContentWidth
 				) / numPages}px"
 			>
-				{#each pages.slice() as page}
+				{#each pages?.slice() as page}
 					{@const pageWidth = cardContentWidth / numPages}
 					<div class="page" class:two-pages={numPages === 2} style="--page-width: {pageWidth}px">
 						{#each page.content as content}
@@ -58,7 +58,7 @@
 
 									<div class="description">
 										{#each content.text as text, index}
-											<p>{text}</p>
+											<p>{@html text}</p>
 										{/each}
 									</div>
 								</div>
