@@ -31,7 +31,7 @@ export const worksData = [
         client: 'World Wildlife Fund India',
         projectType: 'Interactive Story',
         blocks: [
-            { type: 'image', src: WWFMilkStoryImage2, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage4, alt: 'temp alt text', cols: 1 },
             {
                 type: 'text',
                 title: 'Dairy Cold Chain Transition',
@@ -39,9 +39,9 @@ export const worksData = [
                 link: 'https://csp.wwfindia.org/dairy-cold-chain-transition/',
                 cols: 2
             },
-            { type: 'image', src: WWFMilkStoryImage3, alt: 'temp alt text', cols: 1 },
             { type: 'image', src: WWFMilkStoryImage1, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WWFMilkStoryImage4, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage3, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage2, alt: 'temp alt text', cols: 1 },
         ]
     },
     {

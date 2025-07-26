@@ -1,11 +1,14 @@
-import exampleImage from '$lib/assets/images/works/wdvp-2.webp';
+import MyWorkCharts from '$assets/images/writing/my-work-charts.jpg';
+import MyWorkDashboards from '$assets/images/writing/my-work-dashboards.jpg';
+import MyWorkInteractives from '$assets/images/writing/my-work-interactives.jpg';
+
 
 export const myWork = [
     {
         content: [
             {
                 type: 'text',
-                title: 'On a broader sense',
+                title: 'In a broader sense',
                 text: [
                     'My current title is "Frontend and Data Visualisation Developer" but often this means little to most people. People may sometimes get the "frontend" part but that\'s rarely why I love what I get to do for a living.',
                     'Data Visualisation (dataviz for short) involves <span class="highlight">representing information in a way that makes it easier to understand</span> and take action on. This can take the form of charts, storytelling, visual explainers and much more. And if it needs to have its\' own space on the web, then that\'s where I come in.'
@@ -22,7 +25,7 @@ export const myWork = [
                     '<strong>Charts and Graphics</strong><br> For when you want your data to make sense at a glance.',
                 ]
             },
-            { type: 'image', src: exampleImage, alt: 'example graphic content' }
+            { type: 'image', src: MyWorkCharts, alt: 'Gallery of different charts created' }
         ]
     },
     {
@@ -33,7 +36,7 @@ export const myWork = [
                     '<strong>Dashboards and Explorers</strong><br>When you have a lot of data and want to enable others to explore and find the insights they need'
                 ]
             },
-            { type: 'image', src: exampleImage, alt: 'example graphic content' }
+            { type: 'image', src: MyWorkDashboards, alt: 'Collection of screens from different dashboards and explorers' }
         ]
     },
     {
@@ -44,7 +47,7 @@ export const myWork = [
                     '<strong>Interactive Stories and Visual Explainers</strong> <br> When you want to deep dive into a complex topic and need to engage guide your audience through it step by step.'
                 ]
             },
-            { type: 'image', src: exampleImage, alt: 'example graphic content' }
+            { type: 'image', src: MyWorkInteractives, alt: 'Gallery of interactive and scrollytelling pieces created' }
         ]
     },
     {
@@ -53,7 +56,7 @@ export const myWork = [
                 type: 'text',
                 title: 'So Why do I like it?',
                 text: [
-                    "Dataviz and interactive storytelling lies at the crossroads of several things I'm interested in. I like be able to <span class='highlight'>create things and put it out on the web</span> for others to enjoy. Its a space where we're still figuring things out so there's a lot of experimenting and I have been given far more creative freedom that I should be trusted with.",
+                    "Dataviz and interactive storytelling lies at the crossroads of several things I'm interested in. I like being able to <strong>create things and put it out on the web</strong> for others to enjoy. Its a space where we're still figuring things out so there's a lot of experimenting and I have been given far more creative freedom that I should be trusted with.",
                     "And the biggest plus is the incredibly talented people that I find myself surrounded with...",]
             }
         ]

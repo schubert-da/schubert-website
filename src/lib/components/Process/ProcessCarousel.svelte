@@ -218,7 +218,7 @@
 
 				width: var(--page-width);
 				min-width: var(--page-width);
-				padding: calc(4 * var(--card-padding)) calc(2 * var(--card-padding));
+				padding: calc(2 * var(--card-padding)) calc(2 * var(--card-padding));
 				padding-bottom: 0;
 				margin: 0;
 
@@ -277,9 +277,10 @@
 						-webkit-box-decoration-break: clone;
 						padding: 1.25px 4px;
 						background-color: var(--palette-yellow-muted);
-						border: 1px solid #444;
+						border: 1px solid #666;
 						border-radius: 4px;
 
+						line-height: 1;
 						color: white;
 						line-height: 1;
 						font-weight: 400;
@@ -290,17 +291,18 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-
-					border: 1px solid #666;
-					border-radius: 4px;
-					width: 80%;
-					height: 50%;
-					margin: 0 auto;
-					overflow: hidden;
+					width: 90%;
+					height: 90%;
+					max-height: 350px;
+					margin: 0 auto var(--card-padding) auto;
 
 					img {
 						width: 100%;
 						height: auto;
+
+						border: 1px solid #666;
+						border-radius: 4px;
+						overflow: hidden;
 					}
 				}
 			}
