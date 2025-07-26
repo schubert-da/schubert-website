@@ -1,7 +1,7 @@
 <script>
 	import ProcessCarousel from '$lib/components/Process/ProcessCarousel.svelte';
 
-	import { myWork } from '$lib/assets/data/process/dairy-cold-chain';
+	import { myWork } from '$lib/assets/data/process/what-i-do';
 </script>
 
 <ProcessCarousel pages={myWork}></ProcessCarousel>

@@ -32,7 +32,7 @@
 >
 	<div class="card">
 		<div class="card-header">
-			<h1>Dairy Cold Chain Transition</h1>
+			<h1>So What do I do?</h1>
 		</div>
 
 		<div class="card-content" bind:clientWidth={cardContentWidth}>
@@ -262,12 +262,27 @@
 						flex-direction: column;
 						justify-content: center;
 						align-items: flex-start;
-						gap: 1rem;
+						gap: 1.5rem;
 					}
 
 					p {
+						display: inline-block;
 						max-width: 55ch;
 						font-size: var(--font-size-0);
+						line-height: 1.4;
+					}
+
+					:global(span.highlight) {
+						box-decoration-break: clone;
+						-webkit-box-decoration-break: clone;
+						padding: 1.25px 4px;
+						background-color: var(--palette-yellow-muted);
+						border: 1px solid #444;
+						border-radius: 4px;
+
+						color: white;
+						line-height: 1;
+						font-weight: 400;
 					}
 				}
 
