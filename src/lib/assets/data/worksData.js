@@ -1,4 +1,7 @@
-
+import BenfordsImage1 from '$lib/assets/images/works/benfords-1.webp';
+import BenfordsImage2 from '$lib/assets/images/works/benfords-2.webp';
+import BenfordsImage3 from '$lib/assets/images/works/benfords-3.webp';
+import BenfordsImage4 from '$lib/assets/images/works/benfords-4.webp';
 
 import WorldDatavizWorkImage1 from '$lib/assets/images/works/wdvp-1.webp';
 import WorldDatavizWorkImage2 from '$lib/assets/images/works/wdvp-2.webp';
@@ -27,6 +30,24 @@ import WWFArkavathiImage4 from '$lib/assets/images/works/wwfarkavathi-4.webp';
 
 export const worksData = [
     {
+        title: 'Benford\'s Law',
+        client: 'Personal project',
+        projectType: 'Interactive Story',
+        blocks: [
+            { type: 'image', src: BenfordsImage1, alt: 'temp alt text', cols: 1 },
+            {
+                type: 'text',
+                title: 'Benford\'s Law',
+                description: "A visual explainer on Benford's Law which was one of the <strong>winners of the Pudding Cup 2025</strong>",
+                link: 'https://benfords-law-explainer.netlify.app/',
+                cols: 2
+            },
+            { type: 'image', src: BenfordsImage2, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: BenfordsImage4, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: BenfordsImage3, alt: 'temp alt text', cols: 1 },
+        ]
+    },
+    {
         title: 'WWF Milk Story',
         client: 'World Wildlife Fund India',
         projectType: 'Interactive Story',
@@ -35,7 +56,7 @@ export const worksData = [
             {
                 type: 'text',
                 title: 'Dairy Cold Chain Transition',
-                description: 'An interactive story on the pivotal role of technology in dairy delivery chain in India',
+                description: 'An interactive story on the role of technology in dairy chain in India. Nominated for the <strong>Information is Beautiful Awards 2025</strong>',
                 link: 'https://csp.wwfindia.org/dairy-cold-chain-transition/',
                 cols: 2
             },

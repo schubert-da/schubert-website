@@ -38,7 +38,7 @@
 							<div class="grid-text-content">
 								<div class="card-text">
 									<h3>{block.title}</h3>
-									<p>{block.description}</p>
+									<p>{@html block.description}</p>
 								</div>
 
 								<a href={block.link} target="_blank" rel="noopener noreferrer">
