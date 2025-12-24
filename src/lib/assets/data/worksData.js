@@ -34,7 +34,9 @@ export const worksData = [
         client: 'Personal project',
         projectType: 'Interactive Story',
         blocks: [
-            { type: 'image', src: BenfordsImage1, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: BenfordsImage3, alt: 'Bar charts showcasing Benford\'s Law in different datasets', cols: 1 },
+            { type: 'image', src: BenfordsImage4, alt: 'Pages of a magazine with numbers highlighted which will be tested against Benfords Law', cols: 1 },
+            { type: 'image', src: BenfordsImage2, alt: 'Grid showcasing how Benfords occurs when a value grows exponentially', cols: 1 },
             {
                 type: 'text',
                 title: 'Benford\'s Law',
@@ -42,9 +44,7 @@ export const worksData = [
                 link: 'https://benfords-law-explainer.netlify.app/',
                 cols: 2
             },
-            { type: 'image', src: BenfordsImage2, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: BenfordsImage4, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: BenfordsImage3, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: BenfordsImage1, alt: 'Proportion plots showcasing Benford\'s Law in various year columns', cols: 1 },
         ]
     },
     {
@@ -52,7 +52,7 @@ export const worksData = [
         client: 'World Wildlife Fund India',
         projectType: 'Interactive Story',
         blocks: [
-            { type: 'image', src: WWFMilkStoryImage4, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage4, alt: 'Still from a scrollytelling section which showcases the delivery of milk', cols: 1 },
             {
                 type: 'text',
                 title: 'Dairy Cold Chain Transition',
@@ -60,9 +60,9 @@ export const worksData = [
                 link: 'https://csp.wwfindia.org/dairy-cold-chain-transition/',
                 cols: 2
             },
-            { type: 'image', src: WWFMilkStoryImage1, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WWFMilkStoryImage3, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WWFMilkStoryImage2, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage1, alt: 'Treemap of global milk production', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage3, alt: 'Scrollytelling section showcasing the anatomy of a milk chiller', cols: 1 },
+            { type: 'image', src: WWFMilkStoryImage2, alt: 'Calculator to understand energy savings by switching to renewable energy sources', cols: 1 },
         ]
     },
     {
@@ -70,9 +70,9 @@ export const worksData = [
         client: 'Personal project',
         projectType: 'Scrollytelling narrative',
         blocks: [
-            { type: 'image', src: WorldDatavizWorkImage1, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WorldDatavizWorkImage3, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WorldDatavizWorkImage2, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WorldDatavizWorkImage1, alt: 'Small multiples of area charts showing health and wellbeing progress', cols: 1 },
+            { type: 'image', src: WorldDatavizWorkImage3, alt: 'Bar chart showing the decrease in global poverty', cols: 1 },
+            { type: 'image', src: WorldDatavizWorkImage2, alt: 'Maps showing the divide in life expectancy in recent years', cols: 1 },
             {
                 type: 'text',
                 title: 'One Step Ahead',
@@ -80,7 +80,7 @@ export const worksData = [
                 link: 'https://schubert-da.github.io/dvs-world-summit/',
                 cols: 2
             },
-            { type: 'image', src: WorldDatavizWorkImage4, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WorldDatavizWorkImage4, alt: 'Bar chart showing the rise in global hunger', cols: 1 },
         ]
     },
     {
@@ -95,10 +95,10 @@ export const worksData = [
                 link: 'https://gkha.theisn.org/',
                 cols: 2
             },
-            { type: 'image', src: ISNImage1, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: ISNImage3, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: ISNImage2, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: ISNImage4, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: ISNImage1, alt: 'choropleth map showing kidney disease data', cols: 1 },
+            { type: 'image', src: ISNImage3, alt: 'dashboard showing country-specific kidney health data', cols: 1 },
+            { type: 'image', src: ISNImage2, alt: 'loctor globe for kidney health data', cols: 1 },
+            { type: 'image', src: ISNImage4, alt: 'choropleth map showing kidney disease data', cols: 1 },
         ]
     },
     {
@@ -106,8 +106,8 @@ export const worksData = [
         client: 'BehanBox',
         projectType: 'Interactive Story',
         blocks: [
-            { type: 'image', src: BehanBoxImage1, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: BehanBoxImage2, alt: 'temp alt text', cols: 2 },
+            { type: 'image', src: BehanBoxImage1, alt: 'title screen for Mera First Vote', cols: 1 },
+            { type: 'image', src: BehanBoxImage2, alt: 'Illustrated treemap showing women\'s issues', cols: 2 },
             {
                 type: 'text',
                 title: 'Mera First Vote',
@@ -115,8 +115,8 @@ export const worksData = [
                 link: 'https://myfirstvote.behanbox.com/',
                 cols: 1
             },
-            { type: 'image', src: BehanBoxImage3, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: BehanBoxImage4, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: BehanBoxImage3, alt: 'Video explorer of interviews with the participants', cols: 1 },
+            { type: 'image', src: BehanBoxImage4, alt: 'Explorer for women\'s issues and aspirations with audio', cols: 1 },
         ]
     },
     {
@@ -124,9 +124,9 @@ export const worksData = [
         client: 'World Wildlife Fund India',
         projectType: 'Interactive Story',
         blocks: [
-            { type: 'image', src: WWFArkavathiImage4, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WWFArkavathiImage1, alt: 'temp alt text', cols: 1 },
-            { type: 'image', src: WWFArkavathiImage3, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFArkavathiImage4, alt: 'Scrollytelling section highlighting issues to the Arkavathi river', cols: 1 },
+            { type: 'image', src: WWFArkavathiImage1, alt: 'Bar charts showing the condition of wetlands around the Arkavathi river basin', cols: 1 },
+            { type: 'image', src: WWFArkavathiImage3, alt: 'Opening scrollytelling section of the state of the Arkavathi river basin', cols: 1 },
             {
                 type: 'text',
                 title: 'Reviving Arkavathi',
@@ -134,7 +134,7 @@ export const worksData = [
                 link: 'https://csp.wwfindia.org/reviving-the-arkavathi-river/',
                 cols: 2
             },
-            { type: 'image', src: WWFArkavathiImage2, alt: 'temp alt text', cols: 1 },
+            { type: 'image', src: WWFArkavathiImage2, alt: 'Slider showing the revival of the wetlands in recent years', cols: 1 },
         ]
     },
 ];
