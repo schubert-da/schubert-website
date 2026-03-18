@@ -1,5 +1,5 @@
 <script>
-	import { TILE_SET } from './tileSet';
+	// import { TILE_SET } from './tileSet';
 	import { collapseTiles, initTiles } from './WaveFunction';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
@@ -108,13 +108,15 @@
 						class:top={tile?.connections?.top}
 						class:bottom={tile?.connections?.bottom}
 					>
-						<img
-							bind:this={tilesList[rowIndex * NUM_COLS + colIndex]}
-							style:--tile-rotation="{tile?.image?.rotation}deg"
-							class="tile-image"
-							src="/tiles/{tile?.image?.paths}"
-							alt="tile"
-						/>
+						{#if tile?.image?.paths}
+							<img
+								bind:this={tilesList[rowIndex * NUM_COLS + colIndex]}
+								style:--tile-rotation="{tile?.image?.rotation}deg"
+								class="tile-image"
+								src="/tiles/{tile?.image?.paths}"
+								alt="tile"
+							/>
+						{/if}
 					</div>
 				{/each}
 			</div>
