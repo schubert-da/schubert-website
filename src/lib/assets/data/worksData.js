@@ -41,7 +41,7 @@ export const worksData = [
                 type: 'text',
                 title: 'Benford\'s Law',
                 description: "A visual explainer on Benford's Law which was one of the <strong>winners of the Pudding Cup 2025</strong>",
-                link: 'https://benfords-law-explainer.netlify.app/',
+                link: '/benfords-law',
                 cols: 2
             },
             { type: 'image', src: BenfordsImage1, alt: 'Proportion plots showcasing Benford\'s Law in various year columns', cols: 1 },
