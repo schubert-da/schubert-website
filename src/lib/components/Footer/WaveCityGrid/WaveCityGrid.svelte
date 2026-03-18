@@ -1,7 +1,7 @@
 <script>
 	// import { TILE_SET } from './tileSet';
 	import { collapseTiles, initTiles } from './WaveFunction';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import gsap from 'gsap';
 
 	let { numTilesPlaced = $bindable(), DELAY = 0 } = $props();
@@ -16,9 +16,29 @@
 
 	let tilesList = $state({});
 
+	let intervalId;
+
+	function startInterval() {
+		intervalId = setInterval(async () => {
+			currentRow += 2;
+			animateNextTiles(currentRow);
+		}, DELAY * (NUM_COLS * 2) * 1000);
+	}
+
+	function handleVisibilityChange() {
+		if (document.hidden) {
+			gsap.globalTimeline.pause();
+			clearInterval(intervalId);
+		} else {
+			gsap.globalTimeline.resume();
+			startInterval();
+		}
+	}
+
 	onMount(async () => {
 		tiles = await initTiles(tiles, NUM_ROWS, NUM_COLS, 1);
 		tiles = await collapseTiles(tiles, currentRow, NUM_ROWS, NUM_COLS);
+		await tick();
 
 		tiles.forEach((tile, index) => {
 			const tileElement = tilesList[`${currentRow * NUM_COLS + index}`];
@@ -36,16 +56,13 @@
 		currentRow = 0;
 		await animateNextTiles(currentRow);
 
-		const interval = setInterval(
-			async () => {
-				currentRow += 2;
+		startInterval();
+		document.addEventListener('visibilitychange', handleVisibilityChange);
 
-				animateNextTiles(currentRow);
-			},
-			DELAY * (NUM_COLS * 2) * 1000
-		);
-
-		return () => clearInterval(interval);
+		return () => {
+			clearInterval(intervalId);
+			document.removeEventListener('visibilitychange', handleVisibilityChange);
+		};
 	});
 
 	async function animateNextTiles(currentRow) {
