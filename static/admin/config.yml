@@ -14,7 +14,7 @@ media_libraries:
       transformations:
         raster_image: # original format
           format: webp # new format, only `webp` is supported
-          quality: 80 # default: 85
+          quality: 85 # default: 85
           width: 435 # default: original size
           height: 500 # default: original size
         svg:
@@ -43,10 +43,22 @@ collections:
     summary: '{{title}} — {{client}}'
     sortable_fields: [order, title, client]
     fields:
-      - { label: Order, name: order, widget: number, value_type: int, min: 0, hint: 'Controls display order on the works grid (lower first)' }
+      - {
+          label: Order,
+          name: order,
+          widget: number,
+          value_type: int,
+          min: 0,
+          hint: 'Controls display order on the works grid (lower first)'
+        }
       - { label: Title, name: title, widget: string }
       - { label: Client, name: client, widget: string }
-      - { label: Project Type, name: projectType, widget: string, hint: 'e.g. Interactive Story, Dashboard, Scrollytelling narrative' }
+      - {
+          label: Project Type,
+          name: projectType,
+          widget: string,
+          hint: 'e.g. Interactive Story, Dashboard, Scrollytelling narrative'
+        }
       - label: Blocks
         name: blocks
         widget: list
@@ -56,14 +68,45 @@ collections:
             name: image
             widget: object
             fields:
-              - { label: Image, name: src, widget: image }
+              - label: Image
+                name: src
+                widget: image
+                media_libraries:
+                  default:
+                    config:
+                      transformations:
+                        raster_image:
+                          format: webp
+                          quality: 80
+                          width: 800
               - { label: Alt text, name: alt, widget: string }
-              - { label: Columns, name: cols, widget: number, value_type: int, min: 1, max: 2, default: 1 }
+              - {
+                  label: Columns,
+                  name: cols,
+                  widget: number,
+                  value_type: int,
+                  min: 1,
+                  max: 2,
+                  default: 1
+                }
           - label: Text
             name: text
             widget: object
             fields:
               - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: text, hint: 'Inline HTML allowed (e.g. <strong>)' }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  hint: 'Inline HTML allowed (e.g. <strong>)'
+                }
               - { label: Link, name: link, widget: string }
-              - { label: Columns, name: cols, widget: number, value_type: int, min: 1, max: 2, default: 2 }
+              - {
+                  label: Columns,
+                  name: cols,
+                  widget: number,
+                  value_type: int,
+                  min: 1,
+                  max: 3,
+                  default: 2
+                }
