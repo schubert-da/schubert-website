@@ -1,0 +1,39 @@
+{
+  "order": 5,
+  "title": "Mera First Vote",
+  "client": "BehanBox",
+  "projectType": "Interactive Story",
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/media/works/behanbox-1.webp",
+      "alt": "title screen for Mera First Vote",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/behanbox-2.webp",
+      "alt": "Illustrated treemap showing women's issues",
+      "cols": 2
+    },
+    {
+      "type": "text",
+      "title": "Mera First Vote",
+      "description": "Documenting the aspirations of young women and queer Indians",
+      "link": "https://myfirstvote.behanbox.com/",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/behanbox-3.webp",
+      "alt": "Video explorer of interviews with the participants",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/behanbox-4.webp",
+      "alt": "Explorer for women's issues and aspirations with audio",
+      "cols": 1
+    }
+  ]
+}

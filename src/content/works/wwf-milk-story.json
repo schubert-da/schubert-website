@@ -1,0 +1,39 @@
+{
+  "order": 2,
+  "title": "WWF Milk Story",
+  "client": "World Wildlife Fund India",
+  "projectType": "Interactive Story",
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/media/works/wwfmilk-4.webp",
+      "alt": "Still from a scrollytelling section which showcases the delivery of milk",
+      "cols": 1
+    },
+    {
+      "type": "text",
+      "title": "Dairy Cold Chain Transition",
+      "description": "An interactive story on the role of technology in dairy chain in India. Nominated for the <strong>Information is Beautiful Awards 2025</strong>",
+      "link": "https://csp.wwfindia.org/dairy-cold-chain-transition/",
+      "cols": 2
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wwfmilk-1.webp",
+      "alt": "Treemap of global milk production",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wwfmilk-3.webp",
+      "alt": "Scrollytelling section showcasing the anatomy of a milk chiller",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wwfmilk-2.webp",
+      "alt": "Calculator to understand energy savings by switching to renewable energy sources",
+      "cols": 1
+    }
+  ]
+}

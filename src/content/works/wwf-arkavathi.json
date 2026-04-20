@@ -1,0 +1,39 @@
+{
+  "order": 6,
+  "title": "WWF Arkavathi",
+  "client": "World Wildlife Fund India",
+  "projectType": "Interactive Story",
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/media/works/wwfarkavathi-4.webp",
+      "alt": "Scrollytelling section highlighting issues to the Arkavathi river",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wwfarkavathi-1.webp",
+      "alt": "Bar charts showing the condition of wetlands around the Arkavathi river basin",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wwfarkavathi-3.webp",
+      "alt": "Opening scrollytelling section of the state of the Arkavathi river basin",
+      "cols": 1
+    },
+    {
+      "type": "text",
+      "title": "Reviving Arkavathi",
+      "description": "An interactive story on the restoration of the Arkavathi river basin in Karnataka",
+      "link": "https://csp.wwfindia.org/reviving-the-arkavathi-river/",
+      "cols": 2
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wwfarkavathi-2.webp",
+      "alt": "Slider showing the revival of the wetlands in recent years",
+      "cols": 1
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "order": 3,
+  "title": "One Step Ahead",
+  "client": "Personal project",
+  "projectType": "Scrollytelling narrative",
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/media/works/wdvp-1.webp",
+      "alt": "Small multiples of area charts showing health and wellbeing progress",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wdvp-3.webp",
+      "alt": "Bar chart showing the decrease in global poverty",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wdvp-2.webp",
+      "alt": "Maps showing the divide in life expectancy in recent years",
+      "cols": 1
+    },
+    {
+      "type": "text",
+      "title": "One Step Ahead",
+      "description": "A scrollytelling piece on the shortcomings of the efforts to achieve the UN SDG targets",
+      "link": "https://schubert-da.github.io/dvs-world-summit/",
+      "cols": 2
+    },
+    {
+      "type": "image",
+      "src": "/media/works/wdvp-4.webp",
+      "alt": "Bar chart showing the rise in global hunger",
+      "cols": 1
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "order": 1,
+  "title": "Benford's Law",
+  "client": "Personal project",
+  "projectType": "Interactive Story",
+  "blocks": [
+    {
+      "type": "image",
+      "src": "/media/works/benfords-3.webp",
+      "alt": "Bar charts showcasing Benford's Law in different datasets",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/benfords-4.webp",
+      "alt": "Pages of a magazine with numbers highlighted which will be tested against Benfords Law",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/benfords-2.webp",
+      "alt": "Grid showcasing how Benfords occurs when a value grows exponentially",
+      "cols": 1
+    },
+    {
+      "type": "text",
+      "title": "Benford's Law",
+      "description": "A visual explainer on Benford's Law which was one of the <strong>winners of the Pudding Cup 2025</strong>",
+      "link": "/benfords-law",
+      "cols": 2
+    },
+    {
+      "type": "image",
+      "src": "/media/works/benfords-1.webp",
+      "alt": "Proportion plots showcasing Benford's Law in various year columns",
+      "cols": 1
+    }
+  ]
+}

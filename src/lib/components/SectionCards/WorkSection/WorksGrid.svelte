@@ -1,10 +1,11 @@
 <script>
-	import { worksData } from '$lib/assets/data/worksData';
 	import ArrowIcon from '$lib/assets/images/icons/icon-arrow.svg?raw';
+
+	export let works = [];
 
 	let screenWidth = 1000;
 
-	$: processedWorksData = processWorksData(worksData, screenWidth);
+	$: processedWorksData = processWorksData(works, screenWidth);
 
 	function processWorksData(data, screenWidth) {
 		if (screenWidth > 700) {

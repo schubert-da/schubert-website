@@ -1,5 +1,7 @@
 <script>
 	import WorksGrid from './WorksGrid.svelte';
+
+	let { works } = $props();
 </script>
 
 <div class="work-section">
@@ -12,7 +14,7 @@
 		</div>
 
 		<div class="works-grid">
-			<WorksGrid></WorksGrid>
+			<WorksGrid {works}></WorksGrid>
 		</div>
 	</div>
 </div>

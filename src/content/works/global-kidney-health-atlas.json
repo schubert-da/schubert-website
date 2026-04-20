@@ -1,0 +1,39 @@
+{
+  "order": 4,
+  "title": "Global Kidney Health Atlas",
+  "client": "International Society of Nephrology",
+  "projectType": "Dashboard",
+  "blocks": [
+    {
+      "type": "text",
+      "title": "Global Kidney Health Atlas",
+      "description": "A dashboard to visualize the data collected by the ISN on kidney health around the world",
+      "link": "https://gkha.theisn.org/",
+      "cols": 2
+    },
+    {
+      "type": "image",
+      "src": "/media/works/isn-1.webp",
+      "alt": "choropleth map showing kidney disease data",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/isn-3.webp",
+      "alt": "dashboard showing country-specific kidney health data",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/isn-2.webp",
+      "alt": "loctor globe for kidney health data",
+      "cols": 1
+    },
+    {
+      "type": "image",
+      "src": "/media/works/isn-4.webp",
+      "alt": "choropleth map showing kidney disease data",
+      "cols": 1
+    }
+  ]
+}

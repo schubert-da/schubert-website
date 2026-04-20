@@ -8,6 +8,8 @@
 	import Scroller from '@sveltejs/svelte-scroller';
 	import { onMount } from 'svelte';
 
+	let { data } = $props();
+
 	let index = $state(null);
 	let offset = $state(null);
 	let progress = $state(null);
@@ -85,7 +87,7 @@
 			class="foreground-section works-section-container"
 			bind:clientHeight={worksSectionHeight}
 		>
-			<WorkSection></WorkSection>
+			<WorkSection works={data.works}></WorkSection>
 		</div>
 	</div>
 </Scroller>
