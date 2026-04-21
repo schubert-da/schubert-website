@@ -15,14 +15,19 @@
 	let currentRow = 0;
 
 	let tilesList = $state({});
+	let gridWindowEl = $state();
+	let isHovering = $state(false);
 
 	let intervalId;
 
 	function startInterval() {
-		intervalId = setInterval(async () => {
-			currentRow += 2;
-			animateNextTiles(currentRow);
-		}, DELAY * (NUM_COLS * 2) * 1000);
+		intervalId = setInterval(
+			async () => {
+				currentRow += 2;
+				animateNextTiles(currentRow);
+			},
+			DELAY * (NUM_COLS * 2) * 1000
+		);
 	}
 
 	function handleVisibilityChange() {
@@ -95,12 +100,26 @@
 			);
 		});
 
+		const scrollProxy = { t: 0 };
+		let scrollFrom = 0;
+		let scrollTo = 0;
+		let pausedByHover = false;
+
 		timeline.to(
-			'.game-grid',
+			scrollProxy,
 			{
-				y: `-=${tileWidth * 2}px`,
+				t: 1,
 				duration: 0.5,
-				ease: 'power1.inOut'
+				ease: 'power1.inOut',
+				onStart: () => {
+					pausedByHover = isHovering;
+					scrollFrom = gridWindowEl.scrollTop;
+					scrollTo = gridWindowEl.scrollHeight - gridWindowEl.clientHeight;
+				},
+				onUpdate: () => {
+					if (pausedByHover || !gridWindowEl) return;
+					gridWindowEl.scrollTop = scrollFrom + (scrollTo - scrollFrom) * scrollProxy.t;
+				}
 			},
 			'+=0.1'
 		);
@@ -110,7 +129,14 @@
 </script>
 
 <!-- <div class="grid-window"> -->
-<div class="grid-window" style:height="{tileWidth * 3}px">
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<div
+	class="grid-window"
+	bind:this={gridWindowEl}
+	onmouseenter={() => (isHovering = true)}
+	onmouseleave={() => (isHovering = false)}
+	style:height="{tileWidth * 3}px"
+>
 	<div class="game-grid" bind:clientWidth={gridWidth}>
 		{#each Array(Math.floor(tiles.length / NUM_COLS)) as _, rowIndex}
 			<div class="row">
@@ -148,7 +174,9 @@
 		margin: 4rem auto 0 auto;
 		border: 4px solid #666;
 		border-radius: 6px;
-		overflow: hidden;
+		overflow-y: auto;
+		overflow-x: hidden;
+		overscroll-behavior: contain;
 	}
 
 	.game-grid {
